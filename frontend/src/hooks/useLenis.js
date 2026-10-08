@@ -6,6 +6,18 @@ import Lenis from "lenis";
    their native scroll by default (fast & jank-free — important for mobile).
    Disabled entirely under prefers-reduced-motion. Anchor links are routed
    through Lenis so in-page navigation eases smoothly too. */
+let activeLenis = null;
+
+/* Overlay layar penuh (mis. lightbox galeri) menghentikan smooth scroll selama terbuka,
+   supaya roda mouse tidak ikut menggulir halaman di belakangnya. */
+export function pauseSmoothScroll() {
+    activeLenis?.stop();
+}
+
+export function resumeSmoothScroll() {
+    activeLenis?.start();
+}
+
 export default function useLenis() {
     useEffect(() => {
         if (typeof window === "undefined") return;
@@ -16,6 +28,7 @@ export default function useLenis() {
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true,
         });
+        activeLenis = lenis;
 
         let raf = 0;
         const loop = (time) => {
@@ -43,6 +56,7 @@ export default function useLenis() {
             cancelAnimationFrame(raf);
             document.removeEventListener("click", onClick);
             lenis.destroy();
+            if (activeLenis === lenis) activeLenis = null;
         };
     }, []);
 }

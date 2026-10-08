@@ -13,6 +13,7 @@ export const NAV_LINKS = [
     { label: "Tumbuh Kembang", href: "#tumbuh-kembang" },
     { label: "Tentang", href: "#mengapa-yamet" },
     { label: "Metode", href: "#alur" },
+    { label: "Galeri", href: "#galeri" },
     { label: "Testimoni", href: "#testimoni" },
     { label: "Kontak", href: "#kontak" },
 ];
