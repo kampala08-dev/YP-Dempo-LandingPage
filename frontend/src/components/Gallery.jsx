@@ -9,7 +9,8 @@ const SWIPE_MIN_PX = 50;
 
 export default function Gallery() {
     const [index, setIndex] = useState(null);
-    const touchX = useRef(null);
+    const [loadedId, setLoadedId] = useState(null); // foto besar yang sudah selesai dimuat
+    const touchStart = useRef(null); // titik awal geser satu jari
     const opener = useRef(null); // tombol foto yang membuka lightbox, untuk mengembalikan fokus
     const open = index !== null;
     const count = GALLERY.length;
@@ -34,23 +35,29 @@ export default function Gallery() {
         };
     }, [open, go]);
 
-    // Muat lebih dulu foto besar sebelum & sesudahnya agar perpindahan terasa instan
+    // Setelah foto aktif tampil, muat lebih dulu foto sebelum & sesudahnya agar perpindahan terasa instan
     useEffect(() => {
-        if (!open) return;
+        if (!open || loadedId !== GALLERY[index].id) return;
         [index - 1, index + 1].forEach((i) => {
             const img = new Image();
             img.src = gallerySrc(GALLERY[(i + count) % count], 1800);
         });
-    }, [open, index, count]);
+    }, [open, index, count, loadedId]);
 
+    // Geser satu jari = pindah foto. Cubit-zoom (dua jari), geser saat foto diperbesar,
+    // atau geser yang lebih vertikal diabaikan.
     const onTouchStart = (e) => {
-        touchX.current = e.touches[0].clientX;
+        touchStart.current =
+            e.touches.length === 1 ? { x: e.touches[0].clientX, y: e.touches[0].clientY } : null;
     };
     const onTouchEnd = (e) => {
-        if (touchX.current === null) return;
-        const dx = e.changedTouches[0].clientX - touchX.current;
-        touchX.current = null;
-        if (Math.abs(dx) >= SWIPE_MIN_PX) go(dx < 0 ? 1 : -1);
+        const start = touchStart.current;
+        touchStart.current = null;
+        if (!start || e.touches.length > 0) return;
+        if ((window.visualViewport?.scale ?? 1) > 1.01) return;
+        const dx = e.changedTouches[0].clientX - start.x;
+        const dy = e.changedTouches[0].clientY - start.y;
+        if (Math.abs(dx) >= SWIPE_MIN_PX && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? 1 : -1);
     };
 
     const active = open ? GALLERY[index] : null;
@@ -101,7 +108,7 @@ export default function Gallery() {
                                 }}
                                 aria-label={`Perbesar foto: ${item.caption}`}
                                 data-testid={`gallery-item-${i}`}
-                                className="group relative block w-full overflow-hidden rounded-2xl bg-yamet-teal-50 shadow-soft ring-1 ring-yamet-ink/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-yamet-teal/50"
+                                className="group relative block w-full overflow-hidden rounded-2xl bg-yamet-teal-50 shadow-soft ring-1 ring-yamet-ink/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-yamet-teal focus-visible:ring-offset-2 focus-visible:ring-offset-yamet-cream"
                             >
                                 <img
                                     src={gallerySrc(item, 800)}
@@ -116,7 +123,7 @@ export default function Gallery() {
                                 />
                                 <span
                                     aria-hidden="true"
-                                    className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 via-black/25 to-transparent px-3 pb-3 pt-10 text-left text-xs font-bold leading-snug text-white sm:px-4 sm:pb-4 sm:text-sm"
+                                    className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-3 pb-3 pt-10 text-left text-xs font-bold leading-snug text-white sm:px-4 sm:pb-4 sm:text-sm"
                                 >
                                     {item.caption}
                                 </span>
@@ -135,6 +142,9 @@ export default function Gallery() {
                         onClick={(e) => e.target === e.currentTarget && setIndex(null)}
                         onTouchStart={onTouchStart}
                         onTouchEnd={onTouchEnd}
+                        onTouchCancel={() => {
+                            touchStart.current = null;
+                        }}
                         onCloseAutoFocus={(e) => {
                             // Radix hanya mengembalikan fokus ke <Dialog.Trigger>; galeri dibuka lewat state
                             e.preventDefault();
@@ -152,12 +162,23 @@ export default function Gallery() {
                                     alt={active.alt}
                                     width={active.w}
                                     height={active.h}
-                                    className="h-auto max-h-[78vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+                                    fetchPriority="high"
+                                    onLoad={() => setLoadedId(active.id)}
+                                    // lebar dihitung dari rasio agar kotak foto sudah dipesan sebelum file selesai dimuat
+                                    style={{ width: `min(100%, calc(78vh * ${active.w} / ${active.h}))` }}
+                                    className="h-auto max-h-[78vh] max-w-full rounded-xl object-contain shadow-2xl"
                                 />
-                                <p className="mt-4 flex items-center gap-3 text-sm text-white/90" aria-live="polite">
+                                <p
+                                    className="mt-4 flex items-center gap-3 text-sm text-white/90"
+                                    aria-live="polite"
+                                    aria-atomic="true"
+                                >
                                     <span className="font-bold">{active.caption}</span>
-                                    <span className="text-white/50">
+                                    <span className="text-white/50" aria-hidden="true" data-testid="gallery-counter">
                                         {index + 1} / {count}
+                                    </span>
+                                    <span className="sr-only">
+                                        Foto {index + 1} dari {count}
                                     </span>
                                 </p>
 
@@ -165,7 +186,7 @@ export default function Gallery() {
                                     type="button"
                                     onClick={() => go(-1)}
                                     aria-label="Foto sebelumnya"
-                                    className="absolute left-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-6"
+                                    className="absolute left-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-white backdrop-blur transition hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:left-6"
                                 >
                                     <ChevronLeft className="h-6 w-6" />
                                 </button>
@@ -173,13 +194,13 @@ export default function Gallery() {
                                     type="button"
                                     onClick={() => go(1)}
                                     aria-label="Foto berikutnya"
-                                    className="absolute right-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-6"
+                                    className="absolute right-2 top-1/2 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/55 text-white backdrop-blur transition hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-6"
                                 >
                                     <ChevronRight className="h-6 w-6" />
                                 </button>
                                 <DialogPrimitive.Close
                                     aria-label="Tutup"
-                                    className="absolute right-3 top-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-6 sm:top-6"
+                                    className="absolute right-3 top-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-black/55 text-white backdrop-blur transition hover:bg-black/70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white sm:right-6 sm:top-6"
                                 >
                                     <X className="h-6 w-6" />
                                 </DialogPrimitive.Close>
