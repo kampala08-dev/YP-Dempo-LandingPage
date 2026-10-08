@@ -24,12 +24,12 @@ function Landing() {
             <Navbar />
             <main>
                 <Hero />
+                <Gallery />
                 <GrowthJourney />
                 <Services />
                 <WhyYamet />
                 <Conditions />
                 <Workflow />
-                <Gallery />
                 <Testimonials />
                 <FAQ />
                 <ClosingCta />

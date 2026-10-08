@@ -10,10 +10,10 @@ export const waLink = (message = WA_DEFAULT_MESSAGE) =>
 
 export const NAV_LINKS = [
     { label: "Layanan", href: "#layanan" },
+    { label: "Galeri", href: "#galeri" },
     { label: "Tumbuh Kembang", href: "#tumbuh-kembang" },
     { label: "Tentang", href: "#mengapa-yamet" },
     { label: "Metode", href: "#alur" },
-    { label: "Galeri", href: "#galeri" },
     { label: "Testimoni", href: "#testimoni" },
     { label: "Kontak", href: "#kontak" },
 ];
