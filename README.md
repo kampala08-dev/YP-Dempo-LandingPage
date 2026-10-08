@@ -10,7 +10,8 @@ Landing page interaktif untuk **YAMET Child Development Center — Palembang Dem
 
 - **Hero 3D "Ruang Sensori Integrasi"** — visualisasi WebGL (Three.js) berisi ayunan terapi, ball pit, perosotan, panjat tebing, terowongan, dll. + foto anak sebagai fokus. Bisa di-drag (inersia) & parallax mengikuti mouse. Terinspirasi craft situs seperti oryzo.ai, tapi dengan identitas hangat YAMET.
 - **Perjalanan Tumbuh Kembang (0–5 tahun)** — journey milestone berbasis **Denver II**, foto anak yang berganti per usia, plus **panel "Stimulasi Ayah & Bunda"** (saran yang bisa dilakukan orang tua di tiap tahap). Desktop = pinned scroll, mobile = stacked.
-- **8 Jenis Layanan Terapi** — Sensori Integrasi, Perilaku ABA/VB, Wicara, Okupasi, Fisioterapi, Brain Gym, Executive Function, dan CBT.
+- **6 Layanan Terapi** — Wicara, Sensori Integrasi, Okupasi, Perilaku, Pedagogik, dan Fisioterapi (masing-masing dengan daftar fokus terapi).
+- **Galeri Kegiatan** — 12 foto kegiatan terapi (grid masonry + lightbox), tepat di bawah Hero.
 - **Kondisi yang Ditangani** — speech delay, autisme/ASD, gangguan artikulasi, keterlambatan tumbuh kembang, kesulitan motorik, fokus & perilaku (dengan penjelasan mendalam).
 - **Alur Layanan 5 langkah** — Observasi Anak → Asesmen → Program Individual → Sesi Terapi → Evaluasi.
 - **Testimoni asli** dari Google Maps + badge rating **5,0 · 127 ulasan** dengan tautan langsung.
