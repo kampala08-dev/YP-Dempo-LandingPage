@@ -8,8 +8,8 @@ export const GALLERY = [
         id: "dsc00577",
         w: 7028,
         h: 4688,
-        caption: "Terapi Wicara dengan kartu gambar",
-        alt: "Terapis berhijab dan berkacamata memperlihatkan kartu bergambar topi sambil mencontohkan gerak mulut kepada seorang anak yang duduk membelakangi kamera.",
+        caption: "Terapi Perilaku dengan kartu gambar",
+        alt: "Dalam sesi terapi perilaku, terapis berhijab dan berkacamata memperlihatkan kartu bergambar topi kepada seorang anak yang duduk membelakangi kamera.",
     },
     {
         id: "dsc00092",
