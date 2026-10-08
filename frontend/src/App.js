@@ -10,6 +10,7 @@ import Services from "@/components/Services";
 import WhyYamet from "@/components/WhyYamet";
 import Conditions from "@/components/Conditions";
 import Workflow from "@/components/Workflow";
+import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import ClosingCta from "@/components/ClosingCta";
@@ -28,6 +29,7 @@ function Landing() {
                 <WhyYamet />
                 <Conditions />
                 <Workflow />
+                <Gallery />
                 <Testimonials />
                 <FAQ />
                 <ClosingCta />
