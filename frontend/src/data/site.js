@@ -9,7 +9,7 @@ export const waLink = (message = WA_DEFAULT_MESSAGE) =>
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
 export const NAV_LINKS = [
-    { label: "Layanan", href: "#layanan" },
+    { label: "Layanan Terapi", href: "#layanan" },
     { label: "Galeri", href: "#galeri" },
     { label: "Tumbuh Kembang", href: "#tumbuh-kembang" },
     { label: "Tentang", href: "#mengapa-yamet" },

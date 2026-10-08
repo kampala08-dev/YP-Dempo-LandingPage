@@ -8,7 +8,7 @@ const CONDITIONS = [
     },
     {
         title: "Autisme / ASD",
-        desc: "Kondisi perkembangan yang memengaruhi cara anak berkomunikasi, berinteraksi, dan berperilaku — misalnya kontak mata terbatas, perilaku berulang, atau sensitif terhadap rangsangan. Intervensi dini lewat ABA/VB dan sensori integrasi sangat membantu.",
+        desc: "Kondisi perkembangan yang memengaruhi cara anak berkomunikasi, berinteraksi, dan berperilaku — misalnya kontak mata terbatas, perilaku berulang, atau sensitif terhadap rangsangan. Intervensi dini lewat terapi perilaku dan sensori integrasi sangat membantu.",
     },
     {
         title: "Gangguan artikulasi",

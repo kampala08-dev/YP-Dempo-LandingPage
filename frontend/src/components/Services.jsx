@@ -1,24 +1,42 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MessageSquare, Activity, HandHelping, Brain, Blocks, Star, ListChecks, Lightbulb, ArrowUpRight } from "lucide-react";
+import { MessageSquare, Activity, HandHelping, Blocks, Star, BookOpen, Check, ArrowUpRight } from "lucide-react";
 import { waLink } from "../data/site";
 
+// Daftar layanan terapi resmi YAMET Dempo (dari pemilik klinik, 8 Okt 2026).
+// "points" = fokus tiap terapi, ditampilkan sebagai daftar bercentang di kartu.
 const SERVICES = [
-    { id: "sensori", n: "01", icon: Blocks, title: "Terapi Sensori Integrasi", desc: "Membantu anak mengolah informasi sensorik — gerak, sentuh, dan keseimbangan — agar lebih fokus, tenang, dan siap belajar.", color: "blue" },
-    { id: "aba", n: "02", icon: Star, title: "Terapi Perilaku ABA VB", desc: "Pendekatan ABA & Verbal Behavior untuk membangun perilaku positif, kemandirian, dan kemampuan komunikasi anak.", color: "green" },
-    { id: "wicara", n: "03", icon: MessageSquare, title: "Terapi Wicara", desc: "Membantu kemampuan bicara, bahasa, dan komunikasi — termasuk speech delay dan gangguan artikulasi.", color: "red" },
-    { id: "okupasi", n: "04", icon: HandHelping, title: "Terapi Okupasi", desc: "Mengasah motorik halus, sensori, dan kemandirian sehari-hari — makan, berpakaian, hingga fokus belajar.", color: "yellow" },
-    { id: "fisioterapi", n: "05", icon: Activity, title: "Fisioterapi", desc: "Melatih kekuatan, koordinasi, dan motorik kasar agar anak bergerak lebih percaya diri.", color: "blue" },
-    { id: "braingym", n: "06", icon: Brain, title: "Brain Gym", desc: "Gerakan sederhana yang menstimulasi otak untuk meningkatkan fokus, koordinasi, dan kesiapan belajar anak.", color: "green" },
-    { id: "executive", n: "07", icon: ListChecks, title: "Executive Function", desc: "Melatih kemampuan merencanakan, mengatur, fokus, dan mengendalikan diri yang penting untuk belajar & keseharian.", color: "red" },
-    { id: "cbt", n: "08", icon: Lightbulb, title: "Cognitive Behavioral Therapy", desc: "Membantu anak mengenali dan mengelola pikiran serta emosinya (CBT) agar lebih percaya diri dan adaptif.", color: "yellow" },
+    {
+        id: "wicara", n: "01", icon: MessageSquare, title: "Terapi Wicara", color: "red",
+        points: ["Pemahaman / ekspresi bahasa", "Artikulasi", "Pragmatik", "Oral motor training"],
+    },
+    {
+        id: "sensori", n: "02", icon: Blocks, title: "Terapi Sensori Integrasi", color: "blue",
+        points: ["Regulasi sensori", "Fokus / atensi", "Sensory play"],
+    },
+    {
+        id: "okupasi", n: "03", icon: HandHelping, title: "Terapi Okupasi", color: "yellow",
+        points: ["Motorik halus / kasar", "Kemandirian atau ADL (makan, menulis, berpakaian)"],
+    },
+    {
+        id: "perilaku", n: "04", icon: Star, title: "Terapi Perilaku", color: "green",
+        points: ["Manajemen perilaku", "Kepatuhan instruksi", "Pretend play", "Keterampilan sosial"],
+    },
+    {
+        id: "pedagogik", n: "05", icon: BookOpen, title: "Terapi Pedagogik", color: "red",
+        points: ["Remedial", "Literasi / numerasi", "Strategi belajar", "Fungsi eksekutif"],
+    },
+    {
+        id: "fisioterapi", n: "06", icon: Activity, title: "Fisioterapi", color: "blue",
+        points: ["Kekuatan & kontrol otot", "Postur", "Keseimbangan & koordinasi"],
+    },
 ];
 
 const C = {
-    blue: { icon: "bg-brand-blue text-white", num: "text-brand-blue/10", link: "text-brand-blue", hover: "hover:border-brand-blue/40" },
-    green: { icon: "bg-brand-green text-white", num: "text-brand-green/10", link: "text-brand-green", hover: "hover:border-brand-green/40" },
-    red: { icon: "bg-brand-red text-white", num: "text-brand-red/10", link: "text-brand-red", hover: "hover:border-brand-red/40" },
-    yellow: { icon: "bg-brand-yellow text-yamet-ink", num: "text-brand-yellow/25", link: "text-yamet-ink", hover: "hover:border-brand-yellow/50" },
+    blue: { icon: "bg-brand-blue text-white", num: "text-brand-blue/10", link: "text-brand-blue", hover: "hover:border-brand-blue/40", check: "text-brand-blue" },
+    green: { icon: "bg-brand-green text-white", num: "text-brand-green/10", link: "text-brand-green", hover: "hover:border-brand-green/40", check: "text-brand-green" },
+    red: { icon: "bg-brand-red text-white", num: "text-brand-red/10", link: "text-brand-red", hover: "hover:border-brand-red/40", check: "text-brand-red" },
+    yellow: { icon: "bg-brand-yellow text-yamet-ink", num: "text-brand-yellow/25", link: "text-yamet-ink", hover: "hover:border-brand-yellow/50", check: "text-yamet-teal" },
 };
 
 export default function Services() {
@@ -31,8 +49,8 @@ export default function Services() {
                             Layanan Kami
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
-                            Pendampingan menyeluruh,
-                            <span className="text-yamet-teal"> dari hati ke hati.</span>
+                            Layanan Terapi
+                            <span className="block text-yamet-teal">untuk si kecil.</span>
                         </h2>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="lg:col-span-5 lg:pb-2">
@@ -46,7 +64,7 @@ export default function Services() {
                     </motion.div>
                 </div>
 
-                <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
                     {SERVICES.map((s, i) => {
                         const Icon = s.icon;
                         const c = C[s.color];
@@ -57,7 +75,14 @@ export default function Services() {
                                     <Icon className="h-6 w-6" />
                                 </div>
                                 <h3 className="mt-5 font-heading text-lg font-extrabold text-yamet-ink">{s.title}</h3>
-                                <p className="mt-2 flex-1 text-sm leading-relaxed text-yamet-ink-muted">{s.desc}</p>
+                                <ul className="mt-3 flex-1 space-y-2">
+                                    {s.points.map((pt) => (
+                                        <li key={pt} className="flex items-start gap-2 text-sm leading-relaxed text-yamet-ink-muted">
+                                            <Check className={`mt-0.5 h-4 w-4 shrink-0 ${c.check}`} strokeWidth={3} aria-hidden="true" />
+                                            <span>{pt}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                                 <a href={waLink(`Halo YAMET, saya ingin tahu lebih lanjut soal ${s.title}.`)} target="_blank" rel="noopener noreferrer" data-testid={`service-card-${s.id}-link`} className={`mt-6 inline-flex items-center gap-1.5 border-t border-yamet-ink/10 pt-4 text-sm font-bold ${c.link} transition-all duration-300 group-hover:gap-2.5`}>
                                     Selengkapnya
                                     <ArrowUpRight className="h-4 w-4" />
