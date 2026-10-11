@@ -66,7 +66,7 @@ export default function Gallery() {
         <section
             id="galeri"
             data-testid="gallery-section"
-            className="relative py-20 sm:py-24 lg:py-28"
+            className="relative py-16 sm:py-20 lg:py-24"
         >
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <motion.div
@@ -78,7 +78,7 @@ export default function Gallery() {
                 >
                     <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
                         <Camera className="h-3.5 w-3.5" aria-hidden="true" />
-                        Galeri Kegiatan
+                        Galeri kegiatan
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Belajar, bergerak, dan{" "}
@@ -123,7 +123,7 @@ export default function Gallery() {
                                 />
                                 <span
                                     aria-hidden="true"
-                                    className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-3 pb-3 pt-10 text-left text-xs font-bold leading-snug text-white sm:px-4 sm:pb-4 sm:text-sm"
+                                    className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-yamet-ink/85 via-yamet-ink/45 to-transparent px-3 pb-3 pt-10 text-left text-xs font-bold leading-snug text-white sm:px-4 sm:pb-4 sm:text-sm"
                                 >
                                     {item.caption}
                                 </span>

@@ -16,7 +16,7 @@ export default function ClosingCta() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.7 }}
-                    className="relative overflow-hidden rounded-[36px] bg-yamet-teal-600 p-10 text-center text-white shadow-glow sm:p-14 lg:p-16"
+                    className="relative overflow-hidden rounded-5xl bg-yamet-teal-600 p-10 text-center text-white shadow-glow sm:p-14 lg:p-16"
                 >
                     {/* Decorative blobs */}
                     <div aria-hidden="true" className="pointer-events-none absolute inset-0">

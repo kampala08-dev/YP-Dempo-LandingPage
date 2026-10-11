@@ -52,7 +52,7 @@ export default function WhyYamet() {
                         transition={{ duration: 0.6 }}
                         className="lg:col-span-5"
                     >
-                        <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
+                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 before:h-px before:w-8 before:bg-yamet-teal-600">
                             Mengapa YAMET
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
