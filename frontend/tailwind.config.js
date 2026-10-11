@@ -55,6 +55,7 @@ module.exports = {
                     teal: "#3A868F",
                     "teal-50": "#E3F2F6",
                     "teal-100": "#C9E6EC",
+                    "teal-600": "#2E7079", /* teks & tombol: putih di atasnya 5,7:1 */
                     "teal-700": "#2A6168",
                     peach: "#FFB5A7",
                     "peach-50": "#FFE9E3",

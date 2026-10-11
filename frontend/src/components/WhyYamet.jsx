@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ClipboardList, Users, Microscope, FileBarChart, Sparkles } from "lucide-react";
+import { ClipboardList, Users, ListChecks, FileBarChart, Smile, CalendarCheck } from "lucide-react";
 
 const POINTS = [
     {
@@ -10,13 +10,13 @@ const POINTS = [
     },
     {
         icon: Users,
-        title: "Tim profesional berpengalaman",
-        desc: "Terapis wicara, fisioterapis, terapis okupasi, dan psikolog anak yang berlisensi & ramah anak.",
+        title: "Tim terapis bersertifikat",
+        desc: "Terapis wicara, sensori integrasi, okupasi, perilaku, pedagogik, dan fisioterapi yang terbiasa bekerja dengan anak.",
     },
     {
-        icon: Microscope,
-        title: "Metode terstruktur berbasis bukti",
-        desc: "Pendekatan klinis modern yang telah teruji, dipadukan dengan kehangatan dan permainan.",
+        icon: ListChecks,
+        title: "Metode terstruktur & terukur",
+        desc: "Program mengacu pada asesmen awal, dievaluasi berkala, lalu disesuaikan dengan perkembangan anak — dengan cara yang hangat dan lewat permainan.",
     },
     {
         icon: FileBarChart,
@@ -24,9 +24,14 @@ const POINTS = [
         desc: "Orang tua mendapat update jelas tentang progres anak secara berkala — transparan dan terukur.",
     },
     {
-        icon: Sparkles,
+        icon: Smile,
         title: "Lingkungan ramah anak",
         desc: "Ruang terapi yang lembut, aman, dan menyenangkan — supaya si kecil betah dan berkembang.",
+    },
+    {
+        icon: CalendarCheck,
+        title: "Melayani sejak 2023",
+        desc: "Di Jl. Dempo Luar, Palembang — dengan ruang tunggu orang tua yang nyaman dan CCTV di ruang terapi, jadi Anda bisa memantau sesi anak.",
     },
 ];
 
@@ -47,7 +52,7 @@ export default function WhyYamet() {
                         transition={{ duration: 0.6 }}
                         className="lg:col-span-5"
                     >
-                        <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
                             Mengapa YAMET
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
@@ -71,7 +76,7 @@ export default function WhyYamet() {
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ duration: 0.5, delay: i * 0.07 }}
                                     data-testid={`why-point-${i}`}
-                                    className="group rounded-2xl border border-yamet-ink/10 bg-white p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-yamet-teal/40 hover:shadow-soft"
+                                    className="group rounded-2xl border border-yamet-ink/10 bg-white p-5 transition-colors duration-300 hover:border-yamet-teal/40"
                                 >
                                     <div className="flex items-start gap-4">
                                         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-yamet-teal text-white transition-transform group-hover:scale-105">

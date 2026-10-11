@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import useActiveSection from "../hooks/useActiveSection";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import Logo from "./Logo";
@@ -7,6 +8,15 @@ import { NAV_LINKS, waLink } from "../data/site";
 export default function Navbar() {
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const active = useActiveSection(NAV_LINKS.map((l) => l.href.slice(1)));
+
+    // Esc menutup menu HP
+    useEffect(() => {
+        if (!open) return undefined;
+        const onKey = (e) => e.key === "Escape" && setOpen(false);
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+    }, [open]);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 12);
@@ -38,10 +48,17 @@ export default function Navbar() {
                             key={l.href}
                             href={l.href}
                             data-testid={`nav-link-${l.href.replace("#", "")}`}
-                            className="group relative text-sm font-semibold text-yamet-ink/80 transition-colors hover:text-yamet-teal"
+                            aria-current={active === l.href.slice(1) ? "location" : undefined}
+                            className={`group relative py-2 text-sm font-semibold transition-colors hover:text-yamet-teal-600 ${
+                                active === l.href.slice(1) ? "text-yamet-teal-600" : "text-yamet-ink/80"
+                            }`}
                         >
                             {l.label}
-                            <span className="absolute -bottom-1.5 left-0 h-0.5 w-0 rounded-full bg-yamet-teal transition-all duration-300 group-hover:w-full" />
+                            <span
+                                className={`absolute -bottom-0.5 left-0 h-0.5 w-full origin-left rounded-full bg-yamet-teal-600 transition-transform duration-300 ${
+                                    active === l.href.slice(1) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                                }`}
+                            />
                         </a>
                     ))}
                 </nav>
@@ -51,7 +68,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid="navbar-cta-whatsapp"
-                    className="hidden items-center gap-2 rounded-full bg-yamet-teal px-5 py-2.5 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-teal-700 hover:shadow-lg lg:inline-flex"
+                    className="hidden items-center gap-2 rounded-full bg-yamet-teal-600 px-5 py-2.5 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-teal-700 hover:shadow-lg active:translate-y-0 active:scale-[0.98] lg:inline-flex"
                 >
                     <MessageCircle className="h-4 w-4" />
                     Konsultasi
@@ -60,9 +77,11 @@ export default function Navbar() {
                 <button
                     type="button"
                     onClick={() => setOpen((v) => !v)}
-                    aria-label="Buka menu"
+                    aria-label={open ? "Tutup menu" : "Buka menu"}
+                    aria-expanded={open}
+                    aria-controls="menu-mobile"
                     data-testid="navbar-mobile-toggle"
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/70 text-yamet-ink shadow-soft backdrop-blur-md lg:hidden"
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/70 text-yamet-ink shadow-soft backdrop-blur-md transition-transform active:scale-95 lg:hidden"
                 >
                     {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                 </button>
@@ -75,6 +94,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25, ease: "easeOut" }}
+                        id="menu-mobile"
                         className="overflow-hidden border-t border-yamet-teal/10 bg-white/95 backdrop-blur-xl lg:hidden"
                         data-testid="navbar-mobile-menu"
                     >
@@ -85,7 +105,7 @@ export default function Navbar() {
                                     href={l.href}
                                     onClick={() => setOpen(false)}
                                     data-testid={`nav-link-mobile-${l.href.replace("#", "")}`}
-                                    className="block rounded-xl px-3 py-3 text-base font-semibold text-yamet-ink hover:bg-yamet-teal-50 hover:text-yamet-teal"
+                                    className="block rounded-xl px-3 py-3 text-base font-semibold text-yamet-ink transition-colors hover:bg-yamet-teal-50 hover:text-yamet-teal-600 active:bg-yamet-teal-100"
                                 >
                                     {l.label}
                                 </a>
@@ -95,7 +115,7 @@ export default function Navbar() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-testid="navbar-mobile-cta-whatsapp"
-                                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-yamet-teal px-5 py-3 text-sm font-bold text-white shadow-glow"
+                                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-yamet-teal-600 px-5 py-3 text-sm font-bold text-white shadow-glow transition-all hover:bg-yamet-teal-700 active:translate-y-0 active:scale-[0.98]"
                             >
                                 <MessageCircle className="h-4 w-4" />
                                 Konsultasi

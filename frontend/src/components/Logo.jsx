@@ -3,14 +3,14 @@ import React, { useState } from "react";
 /* Uses the real brand logo at /logo-yamet.png once it is added to public/.
    Until then (or if it fails to load) it gracefully falls back to a simple
    built-in mark so the navbar/footer never break. */
-export default function Logo({ className = "h-9", showTagline = false }) {
+export default function Logo({ className = "h-9" }) {
     const [imgOk, setImgOk] = useState(true);
 
     if (imgOk) {
         return (
             <img
                 src="/logo-yamet.png"
-                alt="YAMET — Child Development Center Palembang"
+                alt="YAMET Palembang Dempo"
                 className={`${className} w-auto select-none`}
                 draggable="false"
                 onError={() => setImgOk(false)}
@@ -35,15 +35,9 @@ export default function Logo({ className = "h-9", showTagline = false }) {
                 <div className="font-heading text-lg font-black tracking-tight text-yamet-ink">
                     YAMET<span className="text-yamet-teal">.</span>
                 </div>
-                {showTagline ? (
-                    <div className="text-[10px] font-semibold uppercase tracking-widest text-yamet-ink-muted">
-                        Palembang Dempo
-                    </div>
-                ) : (
-                    <div className="text-[10px] font-semibold uppercase tracking-widest text-yamet-teal/80">
-                        Palembang Dempo
-                    </div>
-                )}
+                <div className="text-[10px] font-semibold uppercase tracking-widest text-yamet-teal-600">
+                    Palembang Dempo
+                </div>
             </div>
         </div>
     );

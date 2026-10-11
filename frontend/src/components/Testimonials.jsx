@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Quote, ChevronLeft, ChevronRight, Star, ExternalLink } from "lucide-react";
+import { Quote, ChevronLeft, ChevronRight, Star, ExternalLink, Pause, Play } from "lucide-react";
 import { GOOGLE_REVIEW_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "../data/site";
 
 // Ulasan asli orang tua dari Google Maps (rating 5,0 · 127 ulasan).
-// Diedit ringan untuk keterbacaan; makna & nada tetap sesuai aslinya.
+// Hanya ulasan bintang 5. Disunting ringkas untuk keterbacaan; makna & nada tetap sesuai aslinya.
 const TESTIMONIALS = [
     {
         id: "t1",
@@ -112,10 +112,16 @@ export default function Testimonials() {
     const [idx, setIdx] = useState(0);
     const total = TESTIMONIALS.length;
 
+    const [paused, setPaused] = useState(false);
+    const [hovering, setHovering] = useState(false);
+
+    // Putar otomatis hanya bila tidak dijeda, tidak sedang disorot/difokus, dan pengguna tidak minta gerak dikurangi
     useEffect(() => {
-        const t = setInterval(() => setIdx((p) => (p + 1) % total), 6000);
+        if (paused || hovering) return undefined;
+        if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return undefined;
+        const t = setInterval(() => setIdx((p) => (p + 1) % total), 7000);
         return () => clearInterval(t);
-    }, [total]);
+    }, [total, paused, hovering]);
 
     const next = () => setIdx((p) => (p + 1) % total);
     const prev = () => setIdx((p) => (p - 1 + total) % total);
@@ -134,7 +140,7 @@ export default function Testimonials() {
                     transition={{ duration: 0.6 }}
                     className="mx-auto max-w-2xl text-center"
                 >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
                         Cerita Orang Tua
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
@@ -160,36 +166,44 @@ export default function Testimonials() {
                     </a>
                 </motion.div>
 
-                <div className="relative mt-12">
-                    <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="relative mx-auto max-w-3xl rounded-[28px] border border-yamet-ink/10 bg-white p-8 shadow-soft sm:p-12"
-                        data-testid={`testimonial-card-${idx}`}
-                    >
-                        <div className="flex items-center justify-between">
-                            <Quote className="h-10 w-10 text-yamet-peach" />
-                            <Stars />
-                        </div>
-                        <p className="mt-5 font-heading text-xl leading-relaxed text-yamet-ink sm:text-2xl">
-                            “{TESTIMONIALS[idx].quote}”
-                        </p>
-                        <div className="mt-8 flex items-center gap-4">
-                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yamet-teal font-heading text-base font-extrabold text-white">
-                                {TESTIMONIALS[idx].parent.charAt(0)}
-                            </div>
-                            <div>
-                                <div className="font-heading text-base font-extrabold text-yamet-ink">
-                                    {TESTIMONIALS[idx].parent}
+                <div
+                    className="relative mt-12"
+                    onMouseEnter={() => setHovering(true)}
+                    onMouseLeave={() => setHovering(false)}
+                    onFocusCapture={() => setHovering(true)}
+                    onBlurCapture={() => setHovering(false)}
+                >
+                    {/* Semua kutipan ditumpuk di sel grid yang sama: tinggi kartu = kutipan terpanjang, jadi tidak melompat */}
+                    <div className="mx-auto grid max-w-3xl">
+                        {TESTIMONIALS.map((t, i) => (
+                            <motion.div
+                                key={t.id}
+                                aria-hidden={i !== idx}
+                                initial={false}
+                                animate={{ opacity: i === idx ? 1 : 0, y: i === idx ? 0 : 12 }}
+                                transition={{ duration: 0.45, ease: "easeOut" }}
+                                className={`col-start-1 row-start-1 rounded-[28px] border border-yamet-ink/10 bg-white p-8 shadow-soft sm:p-12 ${i === idx ? "" : "pointer-events-none"}`}
+                                data-testid={i === idx ? `testimonial-card-${idx}` : undefined}
+                            >
+                                <div className="flex items-center justify-between">
+                                    <Quote className="h-10 w-10 text-yamet-peach" aria-hidden="true" />
+                                    <Stars />
                                 </div>
-                                <div className="text-xs text-yamet-ink-muted">
-                                    Orang tua · Ulasan Google
+                                <p className="mt-5 font-heading text-xl leading-relaxed text-yamet-ink sm:text-2xl">
+                                    “{t.quote}”
+                                </p>
+                                <div className="mt-8 flex items-center gap-4">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yamet-teal-600 font-heading text-base font-extrabold text-white" aria-hidden="true">
+                                        {t.parent.charAt(0)}
+                                    </div>
+                                    <div>
+                                        <div className="font-heading text-base font-extrabold text-yamet-ink">{t.parent}</div>
+                                        <div className="text-xs text-yamet-ink-muted">Orang tua · ulasan bintang 5 di Google</div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </motion.div>
+                            </motion.div>
+                        ))}
+                    </div>
 
                     <div className="mt-8 flex items-center justify-center gap-3">
                         <button
@@ -197,23 +211,32 @@ export default function Testimonials() {
                             onClick={prev}
                             data-testid="testimonial-prev"
                             aria-label="Testimoni sebelumnya"
-                            className="flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-teal transition-all hover:-translate-y-0.5 hover:border-yamet-teal/40 hover:shadow-soft"
+                            className="flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-teal-600 transition-all hover:-translate-y-0.5 hover:border-yamet-teal/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
                         >
                             <ChevronLeft className="h-5 w-5" />
                         </button>
                         <div
                             className="min-w-[64px] text-center font-heading text-sm font-bold tabular-nums text-yamet-ink-muted"
                             data-testid="testimonial-counter"
-                            aria-live="polite"
                         >
-                            <span className="text-base text-yamet-teal">{idx + 1}</span> / {total}
+                            <span className="text-base text-yamet-teal-600">{idx + 1}</span> / {total}
                         </div>
+                        <button
+                            type="button"
+                            onClick={() => setPaused((p) => !p)}
+                            aria-pressed={paused}
+                            aria-label={paused ? "Putar otomatis" : "Jeda putar otomatis"}
+                            data-testid="testimonial-pause"
+                            className={`flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-teal-600 transition-all hover:border-yamet-teal/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]`}
+                        >
+                            {paused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
+                        </button>
                         <button
                             type="button"
                             onClick={next}
                             data-testid="testimonial-next"
                             aria-label="Testimoni berikutnya"
-                            className="flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-teal transition-all hover:-translate-y-0.5 hover:border-yamet-teal/40 hover:shadow-soft"
+                            className="flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-teal-600 transition-all hover:-translate-y-0.5 hover:border-yamet-teal/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
                         >
                             <ChevronRight className="h-5 w-5" />
                         </button>
@@ -225,7 +248,7 @@ export default function Testimonials() {
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="testimonials-google-link"
-                            className="inline-flex items-center gap-2 rounded-full border-2 border-yamet-teal/30 bg-white px-6 py-3 text-sm font-bold text-yamet-teal transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal hover:shadow-soft"
+                            className="inline-flex items-center gap-2 rounded-full border-2 border-yamet-teal/30 bg-white px-6 py-3 text-sm font-bold text-yamet-teal-600 transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal-600 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
                         >
                             Lihat semua {GOOGLE_REVIEW_COUNT} ulasan di Google
                             <ExternalLink className="h-4 w-4" />

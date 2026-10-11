@@ -1,28 +1,36 @@
 import React, { useEffect, useState, Suspense, lazy } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle, ArrowDownCircle, Sparkles, Users, BadgeCheck, HeartHandshake } from "lucide-react";
+import { MessageCircle, ArrowDownCircle, Baby, CalendarCheck, BadgeCheck, HeartHandshake } from "lucide-react";
 import { waLink } from "../data/site";
 
 // Lazy so three.js ships in its own chunk — never downloaded on mobile / no-WebGL.
 const SensoryRoom3D = lazy(() => import("./SensoryRoom3D"));
 
+// Dukungan WebGL dicek sekali saja (tiap getContext membuat konteks baru;
+// dipanggil di setiap resize bisa menghabiskan jatah konteks browser).
+let webglOk = null;
+function hasWebGL() {
+    if (webglOk !== null) return webglOk;
+    try {
+        const c = document.createElement("canvas");
+        webglOk = Boolean(c.getContext("webgl2") || c.getContext("webgl"));
+    } catch (e) {
+        webglOk = false;
+    }
+    return webglOk;
+}
+
 function canRender3D() {
     if (typeof window === "undefined") return false;
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return false;
     if (window.innerWidth < 1024) return false;
-    try {
-        const c = document.createElement("canvas");
-        if (!(c.getContext("webgl2") || c.getContext("webgl"))) return false;
-    } catch (e) {
-        return false;
-    }
-    return true;
+    return hasWebGL();
 }
 
 const trustBadges = [
-    { icon: Users, label: "Ratusan anak terbantu", color: "text-brand-blue" },
-    { icon: BadgeCheck, label: "Tim terapis bersertifikat", color: "text-brand-green" },
-    { icon: HeartHandshake, label: "Program individual", color: "text-brand-red" },
+    { icon: CalendarCheck, label: "Melayani sejak 2023" },
+    { icon: BadgeCheck, label: "Tim terapis bersertifikat" },
+    { icon: HeartHandshake, label: "Program individual per anak" },
 ];
 
 function HeroCopy() {
@@ -32,11 +40,11 @@ function HeroCopy() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm backdrop-blur"
+                className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm backdrop-blur"
                 data-testid="hero-eyebrow"
             >
-                <Sparkles className="h-3.5 w-3.5" />
-                Pusat Tumbuh Kembang Anak — Palembang Dempo
+                <Baby className="h-3.5 w-3.5" />
+                Pusat Terapi Anak Berkebutuhan Khusus — Palembang Dempo
             </motion.div>
 
             <motion.h1
@@ -46,9 +54,9 @@ function HeroCopy() {
                 className="mt-6 font-heading text-4xl font-black leading-[1.1] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl"
                 data-testid="hero-headline"
             >
-                Bantu si Kecil Mencapai
+                Bantu si kecil mencapai
                 <span className="relative inline-block px-2">
-                    <span className="relative z-10 text-yamet-teal">Potensi Terbaiknya</span>
+                    <span className="relative z-10 text-yamet-teal-600">potensi terbaiknya</span>
                     <svg
                         aria-hidden="true"
                         className="absolute inset-x-0 bottom-1 -z-0 w-full"
@@ -63,9 +71,8 @@ function HeroCopy() {
                             fill="none"
                         />
                     </svg>
-                </span>
-                <br />
-                Lewat Intervensi Dini.
+                </span>{" "}
+                lewat intervensi dini.
             </motion.h1>
 
             <motion.p
@@ -75,9 +82,9 @@ function HeroCopy() {
                 className="mt-6 max-w-xl text-base leading-relaxed text-yamet-ink-muted sm:text-lg"
                 data-testid="hero-subheadline"
             >
-                Sensori integrasi, terapi wicara, okupasi, fisioterapi, terapi perilaku,
-                dan lainnya — disusun secara individual oleh tim terapis berpengalaman
-                untuk mendampingi perjalanan tumbuh kembang anak Anda.
+                Terapi wicara, sensori integrasi, okupasi, perilaku, pedagogik, dan
+                fisioterapi — programnya disusun satu per satu untuk tiap anak dan
+                didampingi tim terapis bersertifikat, sejak 2023 di Palembang.
             </motion.p>
 
             <motion.div
@@ -91,7 +98,7 @@ function HeroCopy() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid="hero-cta-whatsapp"
-                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-yamet-teal px-7 py-4 text-base font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-teal-700 hover:shadow-xl"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full bg-yamet-teal-600 px-7 py-4 text-base font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-teal-700 hover:shadow-xl active:translate-y-0 active:scale-[0.98]"
                 >
                     <MessageCircle className="h-5 w-5 transition-transform group-hover:rotate-[-6deg]" />
                     Konsultasi via WhatsApp
@@ -99,7 +106,7 @@ function HeroCopy() {
                 <a
                     href="#tumbuh-kembang"
                     data-testid="hero-cta-timeline"
-                    className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-yamet-teal/30 bg-white/70 px-7 py-3.5 text-base font-bold text-yamet-teal shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal hover:shadow-md"
+                    className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-yamet-teal/30 bg-white/70 px-7 py-3.5 text-base font-bold text-yamet-teal-600 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal-600 hover:shadow-md active:translate-y-0 active:scale-[0.98]"
                 >
                     <ArrowDownCircle className="h-5 w-5 transition-transform group-hover:translate-y-0.5" />
                     Lihat Tahap Tumbuh Kembang
@@ -129,7 +136,7 @@ function HeroCopy() {
                         }}
                         className="flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/80 px-4 py-2 text-xs font-semibold text-yamet-ink shadow-sm backdrop-blur sm:text-sm"
                     >
-                        <b.icon className={`h-4 w-4 ${b.color}`} />
+                        <b.icon className="h-4 w-4 text-yamet-teal-600" />
                         {b.label}
                     </motion.li>
                 ))}
@@ -159,7 +166,7 @@ export default function Hero() {
             <section
                 id="hero"
                 data-testid="hero-section"
-                className="relative flex min-h-screen items-center overflow-hidden pt-28 pb-16 lg:pt-32 lg:pb-20"
+                className="relative flex min-h-dvh items-center overflow-hidden pt-28 pb-16 lg:pt-32 lg:pb-20"
             >
                 <Suspense fallback={null}>
                     <SensoryRoom3D />
@@ -224,7 +231,7 @@ export default function Hero() {
                             <div aria-hidden="true" className="absolute right-12 bottom-28 h-6 w-6 rounded-full bg-brand-green/50" />
                             <img
                                 src="/u-4-tahun.webp"
-                                alt="Anak ceria di YAMET Palembang"
+                                alt="Ilustrasi anak tersenyum berdiri di ruang terapi"
                                 className="relative z-10 h-[97%] w-auto object-contain drop-shadow-2xl"
                                 loading="eager"
                             />
@@ -256,7 +263,7 @@ export default function Hero() {
                             className="absolute -right-2 bottom-10 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-glow ring-1 ring-yamet-peach/40"
                         >
                             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-yamet-peach/40">
-                                <Sparkles className="h-5 w-5 text-yamet-orange" />
+                                <CalendarCheck className="h-5 w-5 text-yamet-orange" />
                             </div>
                             <div>
                                 <div className="text-[10px] font-bold uppercase tracking-wider text-yamet-ink-muted">

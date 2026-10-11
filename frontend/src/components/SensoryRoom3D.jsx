@@ -17,19 +17,6 @@ import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeom
 const CHILD_SRC = "/u-4-tahun.webp";
 const CHILD_RATIO = 0.747;
 
-export function canRender3D() {
-    if (typeof window === "undefined") return false;
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return false;
-    if (window.innerWidth < 1024) return false;
-    try {
-        const c = document.createElement("canvas");
-        if (!(c.getContext("webgl2") || c.getContext("webgl"))) return false;
-    } catch (e) {
-        return false;
-    }
-    return true;
-}
-
 function createScene(canvas) {
     const COL = {
         teal: new THREE.Color("#3A868F"),
@@ -69,7 +56,7 @@ function createScene(canvas) {
     const key = new THREE.DirectionalLight(0xffffff, 1.5);
     key.position.set(-6, 12, 8);
     key.castShadow = true;
-    key.shadow.mapSize.set(2048, 2048);
+    key.shadow.mapSize.set(1024, 1024); // cukup untuk latar belakang, separuh beban GPU
     key.shadow.camera.near = 1;
     key.shadow.camera.far = 60;
     key.shadow.camera.left = -20;
