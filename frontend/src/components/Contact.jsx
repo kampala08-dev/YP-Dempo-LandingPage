@@ -71,7 +71,7 @@ export default function Contact() {
         <section
             id="kontak"
             data-testid="contact-section"
-            className="relative py-20 sm:py-24 lg:py-28"
+            className="relative py-14 sm:py-20 lg:py-28"
         >
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <motion.div
@@ -221,7 +221,7 @@ export default function Contact() {
                             <p className="mt-4 text-xs text-yamet-ink-muted">
                                 Dengan mengirim pesan ini, Anda setuju dihubungi tim YAMET untuk keperluan
                                 konsultasi. Data Anda hanya dipakai untuk itu — lihat{" "}
-                                <Link to="/privasi" className="font-semibold text-yamet-brick underline underline-offset-2">
+                                <Link to="/privasi" className="-my-3.5 inline-block py-3.5 font-semibold text-yamet-brick underline underline-offset-2">
                                     kebijakan privasi
                                 </Link>
                                 .
@@ -251,7 +251,7 @@ export default function Contact() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         data-testid="contact-address"
-                                        className="leading-relaxed text-yamet-ink hover:text-yamet-gold"
+                                        className="inline-block py-2.5 leading-relaxed text-yamet-ink hover:text-yamet-gold"
                                     >
                                         {ADDRESS}
                                     </a>
@@ -265,7 +265,7 @@ export default function Contact() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         data-testid="contact-whatsapp"
-                                        className="font-semibold text-yamet-ink hover:text-yamet-gold"
+                                        className="inline-block py-3 font-semibold text-yamet-ink hover:text-yamet-gold"
                                     >
                                         {WHATSAPP_DISPLAY} (WhatsApp)
                                     </a>
@@ -279,7 +279,7 @@ export default function Contact() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         data-testid="contact-instagram"
-                                        className="font-semibold text-yamet-ink hover:text-yamet-gold"
+                                        className="inline-block py-3 font-semibold text-yamet-ink hover:text-yamet-gold"
                                     >
                                         {INSTAGRAM_HANDLE}
                                     </a>

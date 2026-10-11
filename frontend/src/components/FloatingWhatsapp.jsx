@@ -27,7 +27,10 @@ export default function FloatingWhatsapp() {
     };
 
     return (
-        <div className="fixed bottom-5 right-5 z-50 flex items-end gap-3 sm:bottom-6 sm:right-6" data-testid="floating-whatsapp-wrap">
+        <div
+            className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1.25rem,env(safe-area-inset-right))] z-50 flex items-end gap-3 sm:bottom-6 sm:right-6"
+            data-testid="floating-whatsapp-wrap"
+        >
             <AnimatePresence>
                 {showTip && (
                     <motion.div

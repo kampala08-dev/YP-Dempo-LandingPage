@@ -37,7 +37,7 @@ const STEPS = [
 
 export default function Workflow() {
     return (
-        <section id="alur" data-testid="workflow-section" className="relative bg-white py-20 sm:py-24 lg:py-28">
+        <section id="alur" data-testid="workflow-section" className="relative bg-white py-14 sm:py-20 lg:py-28">
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
                     {/* Kiri: judul + langkah */}

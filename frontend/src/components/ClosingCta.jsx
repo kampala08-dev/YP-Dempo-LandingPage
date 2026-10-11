@@ -8,7 +8,7 @@ export default function ClosingCta() {
         <section
             id="cta-penutup"
             data-testid="closing-cta-section"
-            className="relative py-20 sm:py-24 lg:py-28"
+            className="relative py-14 sm:py-20 lg:py-28"
         >
             <div className="mx-auto max-w-5xl px-5 lg:px-8">
                 <motion.div
@@ -16,7 +16,7 @@ export default function ClosingCta() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.7 }}
-                    className="relative overflow-hidden rounded-5xl bg-yamet-brick p-10 text-center text-white shadow-glow sm:p-14 lg:p-16"
+                    className="relative overflow-hidden rounded-4xl bg-yamet-brick px-6 py-10 text-center text-white shadow-glow sm:rounded-5xl sm:p-14 lg:p-16"
                 >
                     {/* Decorative blobs */}
                     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -36,7 +36,7 @@ export default function ClosingCta() {
                         <Heart className="h-8 w-8 text-yamet-peach" fill="currentColor" aria-hidden="true" />
                     </motion.div>
 
-                    <h2 className="relative font-heading text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+                    <h2 className="relative font-heading text-3xl font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
                         Mulai perjalanan tumbuh kembang
                         <span className="block text-yamet-peach-50">anak Anda hari ini.</span>
                     </h2>

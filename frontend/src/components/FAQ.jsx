@@ -35,7 +35,7 @@ export default function FAQ() {
         <section
             id="faq"
             data-testid="faq-section"
-            className="relative bg-yamet-sun-50/30 py-16 sm:py-20 lg:py-24"
+            className="relative bg-yamet-sun-50/30 py-12 sm:py-16 lg:py-24"
         >
             <div className="mx-auto max-w-4xl px-5 lg:px-8">
                 <motion.div

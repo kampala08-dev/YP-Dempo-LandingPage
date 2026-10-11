@@ -38,7 +38,7 @@ export default function Navbar() {
             data-testid="site-navbar"
         >
             <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3.5 lg:px-8">
-                <a href="#hero" data-testid="navbar-logo-link" className="shrink-0">
+                <a href="#hero" data-testid="navbar-logo-link" className="flex min-h-[44px] shrink-0 items-center">
                     <Logo className="h-10" />
                 </a>
 
@@ -49,7 +49,7 @@ export default function Navbar() {
                             href={l.href}
                             data-testid={`nav-link-${l.href.replace("#", "")}`}
                             aria-current={active === l.href.slice(1) ? "location" : undefined}
-                            className={`group relative py-2 text-sm font-semibold transition-colors hover:text-yamet-brick ${
+                            className={`group relative py-3 text-sm font-semibold transition-colors hover:text-yamet-brick ${
                                 active === l.href.slice(1) ? "text-yamet-brick" : "text-yamet-ink/80"
                             }`}
                         >
@@ -68,7 +68,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid="navbar-cta-whatsapp"
-                    className="hidden items-center gap-2 rounded-full bg-yamet-brick px-5 py-2.5 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-brick-dark hover:shadow-lg active:translate-y-0 active:scale-[0.98] lg:inline-flex"
+                    className="hidden items-center gap-2 rounded-full bg-yamet-brick px-5 py-3 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-brick-dark hover:shadow-lg active:translate-y-0 active:scale-[0.98] lg:inline-flex"
                 >
                     <MessageCircle className="h-4 w-4" />
                     Konsultasi
@@ -81,9 +81,10 @@ export default function Navbar() {
                     aria-expanded={open}
                     aria-controls="menu-mobile"
                     data-testid="navbar-mobile-toggle"
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/70 text-yamet-ink shadow-soft backdrop-blur-md transition-transform active:scale-95 lg:hidden"
+                    className="inline-flex h-11 items-center gap-2 rounded-xl bg-white/70 px-3 text-sm font-bold text-yamet-ink shadow-soft backdrop-blur-md transition-transform active:scale-95 lg:hidden"
                 >
-                    {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+                    {open ? <X className="h-5 w-5" aria-hidden="true" /> : <Menu className="h-5 w-5" aria-hidden="true" />}
+                    {open ? "Tutup" : "Menu"}
                 </button>
             </div>
 

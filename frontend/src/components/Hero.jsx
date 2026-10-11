@@ -51,7 +51,7 @@ function HeroCopy() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                className="mt-6 font-heading text-4xl font-black leading-[1.1] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl"
+                className="mt-5 font-heading text-[2rem] font-black leading-[1.1] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl"
                 data-testid="hero-headline"
             >
                 Bantu si kecil mencapai
@@ -196,7 +196,7 @@ export default function Hero() {
         <section
             id="hero"
             data-testid="hero-section"
-            className="relative overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24"
+            className="relative overflow-hidden pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-24"
         >
             {/* Decorative background blobs */}
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
@@ -220,7 +220,8 @@ export default function Hero() {
                     className="relative lg:col-span-5"
                     data-testid="hero-visual"
                 >
-                    <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
+                    {/* HP: ilustrasi lebih kecil & lebih pendek supaya tidak menghabiskan satu layar penuh */}
+                    <div className="relative mx-auto aspect-square w-full max-w-[300px] sm:aspect-[4/5] sm:max-w-md">
                         {/* Offset accent panels */}
                         <div aria-hidden="true" className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-4xl bg-yamet-peach/50" />
                         <div aria-hidden="true" className="absolute -top-5 -left-5 -z-10 h-28 w-28 rounded-4xl bg-yamet-sun-50" />

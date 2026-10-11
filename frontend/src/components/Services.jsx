@@ -40,7 +40,7 @@ const C = {
 
 export default function Services() {
     return (
-        <section id="layanan" data-testid="services-section" className="relative py-20 sm:py-24 lg:py-28">
+        <section id="layanan" data-testid="services-section" className="relative py-14 sm:py-20 lg:py-28">
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-7">
@@ -63,7 +63,7 @@ export default function Services() {
                     </motion.div>
                 </div>
 
-                <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-14 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
                     {SERVICES.map((s, i) => {
                         const Icon = s.icon;
                         const c = C[s.color];
@@ -82,7 +82,7 @@ export default function Services() {
                                         </li>
                                     ))}
                                 </ul>
-                                <a href={waLink(`Halo YAMET, saya ingin tahu lebih lanjut soal ${s.title}.`)} target="_blank" rel="noopener noreferrer" data-testid={`service-card-${s.id}-link`} className={`mt-6 inline-flex items-center gap-1.5 border-t border-yamet-ink/10 pt-4 text-sm font-bold ${c.link} transition-all duration-300 group-hover:gap-2.5`}>
+                                <a href={waLink(`Halo YAMET, saya ingin tahu lebih lanjut soal ${s.title}.`)} target="_blank" rel="noopener noreferrer" data-testid={`service-card-${s.id}-link`} className={`mt-5 inline-flex min-h-[44px] items-center gap-1.5 border-t border-yamet-ink/10 pt-3 text-sm font-bold ${c.link} transition-all duration-300 group-hover:gap-2.5 active:opacity-70`}>
                                     Tanya via WhatsApp
                                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                                 </a>

@@ -33,7 +33,7 @@ const DOT = ["bg-yamet-brick", "bg-yamet-peach"];
 
 export default function Conditions() {
     return (
-        <section id="kondisi" data-testid="conditions-section" className="relative py-16 sm:py-20 lg:py-24">
+        <section id="kondisi" data-testid="conditions-section" className="relative py-12 sm:py-16 lg:py-24">
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
                     <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-7">

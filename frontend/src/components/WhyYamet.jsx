@@ -40,7 +40,7 @@ export default function WhyYamet() {
         <section
             id="mengapa-yamet"
             data-testid="why-yamet-section"
-            className="relative bg-yamet-sun-50/40 py-20 sm:py-24 lg:py-28"
+            className="relative bg-yamet-sun-50/40 py-14 sm:py-20 lg:py-28"
         >
             <div aria-hidden="true" className="absolute inset-0 grain-bg opacity-40" />
             <div className="relative mx-auto max-w-7xl px-5 lg:px-8">

@@ -57,7 +57,7 @@ export default function Footer() {
                                 <a
                                     href={l.href}
                                     data-testid={`footer-link-${l.href.replace("#", "")}`}
-                                    className="inline-block py-1 text-yamet-ink-muted transition-colors hover:text-yamet-brick"
+                                    className="-ml-2 inline-block min-w-[44px] px-2 py-3 text-yamet-ink-muted transition-colors hover:text-yamet-brick"
                                 >
                                     {l.label}
                                 </a>
@@ -81,7 +81,7 @@ export default function Footer() {
                                 href={waLink()}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block py-1 transition-colors hover:text-yamet-brick"
+                                className="inline-block py-3 transition-colors hover:text-yamet-brick"
                             >
                                 {WHATSAPP_DISPLAY}
                             </a>
@@ -92,7 +92,7 @@ export default function Footer() {
                                 href={INSTAGRAM_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block py-1 transition-colors hover:text-yamet-brick"
+                                className="inline-block py-3 transition-colors hover:text-yamet-brick"
                             >
                                 {INSTAGRAM_HANDLE}
                             </a>
@@ -104,7 +104,7 @@ export default function Footer() {
             <div className="mx-auto mt-12 max-w-7xl border-t border-yamet-gold/10 px-5 pt-6 lg:px-8">
                 <div className="flex flex-col items-center justify-between gap-3 text-xs text-yamet-ink-muted sm:flex-row">
                     <p>© {year} YAMET Palembang Dempo. Semua hak dilindungi.</p>
-                    <Link to="/privasi" data-testid="footer-privasi" className="inline-block py-1 font-semibold transition-colors hover:text-yamet-brick">
+                    <Link to="/privasi" data-testid="footer-privasi" className="inline-block py-3.5 font-semibold transition-colors hover:text-yamet-brick">
                         Kebijakan privasi
                     </Link>
                 </div>
