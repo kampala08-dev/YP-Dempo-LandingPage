@@ -28,8 +28,8 @@ function canRender3D() {
 }
 
 const trustBadges = [
-    { icon: CalendarCheck, label: "Melayani sejak 2023" },
-    { icon: BadgeCheck, label: "Tim terapis bersertifikat" },
+    { icon: CalendarCheck, label: "Sejak tahun 2023" },
+    { icon: BadgeCheck, label: "Tim terapis berpengalaman" },
     { icon: HeartHandshake, label: "Program individual per anak" },
 ];
 
@@ -84,7 +84,7 @@ function HeroCopy() {
             >
                 Terapi wicara, sensori integrasi, okupasi, perilaku, pedagogik, dan
                 fisioterapi — programnya disusun satu per satu untuk tiap anak dan
-                didampingi tim terapis bersertifikat, sejak 2023 di Palembang.
+                didampingi tim terapis berpengalaman — sejak tahun 2023 di Palembang.
             </motion.p>
 
             <motion.div
