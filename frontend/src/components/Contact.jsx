@@ -82,7 +82,7 @@ export default function Contact() {
                     className="mx-auto max-w-2xl text-center"
                 >
                     <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
-                        Kontak & Lokasi
+                        Kontak & lokasi
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Mari{" "}
@@ -103,7 +103,7 @@ export default function Contact() {
                             onSubmit={submit}
                             noValidate
                             data-testid="contact-form"
-                            className="rounded-[28px] bg-white p-6 border border-yamet-ink/10 shadow-soft sm:p-8"
+                            className="rounded-3xl bg-white p-6 border border-yamet-ink/10 shadow-soft sm:p-8"
                         >
                             <h3 className="font-heading text-xl font-extrabold text-yamet-ink sm:text-2xl">
                                 Tinggalkan pesan
@@ -237,7 +237,7 @@ export default function Contact() {
                         transition={{ duration: 0.6 }}
                         className="space-y-6 lg:col-span-5"
                     >
-                        <div className="rounded-[28px] bg-white p-6 border border-yamet-ink/10 shadow-soft sm:p-8">
+                        <div className="rounded-3xl bg-white p-6 border border-yamet-ink/10 shadow-soft sm:p-8">
                             <h3 className="font-heading text-lg font-extrabold text-yamet-ink">
                                 YAMET Palembang Dempo
                             </h3>
@@ -315,7 +315,7 @@ export default function Contact() {
                         </div>
 
                         <div
-                            className="overflow-hidden rounded-[28px] bg-white border border-yamet-ink/10 shadow-soft"
+                            className="overflow-hidden rounded-3xl bg-white border border-yamet-ink/10 shadow-soft"
                             data-testid="contact-map"
                         >
                             <iframe

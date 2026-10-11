@@ -130,9 +130,20 @@ export default function Testimonials() {
         <section
             id="testimoni"
             data-testid="testimonials-section"
-            className="relative py-20 sm:py-24 lg:py-28"
+            className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
         >
-            <div className="mx-auto max-w-5xl px-5 lg:px-8">
+            {/* Latar: foto ruang terapi yang sangat lembut, supaya section tidak datar */}
+            <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <img
+                    src="/galeri/dsc00502-800.webp"
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover opacity-[0.08] blur-sm"
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-yamet-cream via-yamet-cream/60 to-yamet-cream" />
+            </div>
+            <div className="relative mx-auto max-w-5xl px-5 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -141,7 +152,7 @@ export default function Testimonials() {
                     className="mx-auto max-w-2xl text-center"
                 >
                     <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
-                        Cerita Orang Tua
+                        Cerita orang tua
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Kepercayaan keluarga{" "}
@@ -182,7 +193,7 @@ export default function Testimonials() {
                                 initial={false}
                                 animate={{ opacity: i === idx ? 1 : 0, y: i === idx ? 0 : 12 }}
                                 transition={{ duration: 0.45, ease: "easeOut" }}
-                                className={`col-start-1 row-start-1 rounded-[28px] border border-yamet-ink/10 bg-white p-8 shadow-soft sm:p-12 ${i === idx ? "" : "pointer-events-none"}`}
+                                className={`col-start-1 row-start-1 rounded-3xl border border-yamet-ink/10 bg-white p-8 shadow-soft sm:p-12 ${i === idx ? "" : "pointer-events-none"}`}
                                 data-testid={i === idx ? `testimonial-card-${idx}` : undefined}
                             >
                                 <div className="flex items-center justify-between">

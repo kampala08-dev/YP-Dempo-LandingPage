@@ -28,8 +28,8 @@ function canRender3D() {
 }
 
 const trustBadges = [
-    { icon: CalendarCheck, label: "Melayani sejak 2023" },
-    { icon: BadgeCheck, label: "Tim terapis bersertifikat" },
+    { icon: CalendarCheck, label: "Sejak tahun 2023" },
+    { icon: BadgeCheck, label: "Tim terapis berpengalaman" },
     { icon: HeartHandshake, label: "Program individual per anak" },
 ];
 
@@ -84,7 +84,7 @@ function HeroCopy() {
             >
                 Terapi wicara, sensori integrasi, okupasi, perilaku, pedagogik, dan
                 fisioterapi — programnya disusun satu per satu untuk tiap anak dan
-                didampingi tim terapis bersertifikat, sejak 2023 di Palembang.
+                didampingi tim terapis berpengalaman — sejak tahun 2023 di Palembang.
             </motion.p>
 
             <motion.div
@@ -222,13 +222,13 @@ export default function Hero() {
                 >
                     <div className="relative mx-auto aspect-[4/5] w-full max-w-md">
                         {/* Offset accent panels */}
-                        <div aria-hidden="true" className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-[2.25rem] bg-yamet-peach/50" />
-                        <div aria-hidden="true" className="absolute -top-5 -left-5 -z-10 h-28 w-28 rounded-[2rem] bg-yamet-teal-50" />
+                        <div aria-hidden="true" className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-4xl bg-yamet-peach/50" />
+                        <div aria-hidden="true" className="absolute -top-5 -left-5 -z-10 h-28 w-28 rounded-4xl bg-yamet-teal-50" />
 
-                        <div className="relative flex h-full w-full items-end justify-center overflow-hidden rounded-[2.25rem] bg-gradient-to-b from-yamet-teal-50 via-yamet-cream to-yamet-peach-50 shadow-glow ring-1 ring-yamet-ink/5">
-                            <div aria-hidden="true" className="absolute left-6 top-8 h-8 w-8 rounded-full bg-brand-yellow/70" />
-                            <div aria-hidden="true" className="absolute right-8 top-14 h-5 w-5 rounded-full bg-brand-blue/60" />
-                            <div aria-hidden="true" className="absolute right-12 bottom-28 h-6 w-6 rounded-full bg-brand-green/50" />
+                        <div className="relative flex h-full w-full items-end justify-center overflow-hidden rounded-4xl bg-gradient-to-b from-yamet-teal-50 via-yamet-cream to-yamet-peach-50 shadow-glow ring-1 ring-yamet-ink/5">
+                            <div aria-hidden="true" className="absolute left-6 top-8 h-8 w-8 rounded-full bg-yamet-peach/80" />
+                            <div aria-hidden="true" className="absolute right-8 top-14 h-5 w-5 rounded-full bg-yamet-teal/40" />
+                            <div aria-hidden="true" className="absolute right-12 bottom-28 h-6 w-6 rounded-full bg-yamet-teal-100" />
                             <img
                                 src="/u-4-tahun.webp"
                                 alt="Ilustrasi anak tersenyum berdiri di ruang terapi"

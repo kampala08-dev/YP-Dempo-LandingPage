@@ -28,17 +28,17 @@ const CONDITIONS = [
     },
 ];
 
-// Brand-color accents, cycled across the condition cards.
-const DOT = ["bg-brand-red", "bg-brand-yellow", "bg-brand-green", "bg-brand-blue", "bg-yamet-teal", "bg-yamet-peach"];
+// Aksen bergantian teal/peach (bukan pelangi) — konsisten dengan kartu layanan.
+const DOT = ["bg-yamet-teal-600", "bg-yamet-peach"];
 
 export default function Conditions() {
     return (
-        <section id="kondisi" data-testid="conditions-section" className="relative py-20 sm:py-24 lg:py-28">
+        <section id="kondisi" data-testid="conditions-section" className="relative py-16 sm:py-20 lg:py-24">
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
                     <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-7">
-                        <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
-                            Kondisi yang Kami Tangani
+                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 before:h-px before:w-8 before:bg-yamet-teal-600">
+                            Kondisi yang kami tangani
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
                             Kami hadir untuk{" "}
@@ -52,12 +52,12 @@ export default function Conditions() {
                     </motion.div>
                 </div>
 
-                <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+                <div className="mt-14 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 lg:gap-y-10">
                     {CONDITIONS.map((c, i) => (
-                        <motion.div key={c.title} initial={{ opacity: 0, scale: 0.97, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.45, delay: i * 0.05 }} data-testid={`condition-${i}`} className="group rounded-2xl border border-yamet-ink/10 bg-white p-5 transition-colors duration-300 hover:border-yamet-teal/40">
+                        <motion.div key={c.title} initial={{ opacity: 0, scale: 0.97, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.45, delay: i * 0.05 }} data-testid={`condition-${i}`} className="group border-l-2 border-yamet-teal/20 pl-5 transition-colors duration-300 hover:border-yamet-teal-600">
                             <div className="flex items-start gap-2.5">
-                                <span className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full transition-transform group-hover:scale-150 ${DOT[i % DOT.length]}`} />
-                                <h3 className="font-heading text-base font-extrabold leading-snug text-yamet-ink">{c.title}</h3>
+                                <span className={`mt-2 h-2.5 w-2.5 shrink-0 rounded-full ${DOT[i % DOT.length]}`} aria-hidden="true" />
+                                <h3 className="font-heading text-lg font-extrabold leading-snug text-yamet-ink">{c.title}</h3>
                             </div>
                             <p className="mt-2 text-sm leading-relaxed text-yamet-ink-muted">{c.desc}</p>
                         </motion.div>

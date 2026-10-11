@@ -7,36 +7,35 @@ import { waLink } from "../data/site";
 // "points" = fokus tiap terapi, ditampilkan sebagai daftar bercentang di kartu.
 const SERVICES = [
     {
-        id: "wicara", n: "01", icon: MessageSquare, title: "Terapi Wicara", color: "red",
+        id: "wicara", n: "01", icon: MessageSquare, title: "Terapi Wicara", color: "teal",
         points: ["Pemahaman / ekspresi bahasa", "Artikulasi", "Pragmatik", "Oral motor training"],
     },
     {
-        id: "sensori", n: "02", icon: Blocks, title: "Terapi Sensori Integrasi", color: "blue",
+        id: "sensori", n: "02", icon: Blocks, title: "Terapi Sensori Integrasi", color: "peach",
         points: ["Regulasi sensori", "Fokus / atensi", "Sensory play"],
     },
     {
-        id: "okupasi", n: "03", icon: HandHelping, title: "Terapi Okupasi", color: "yellow",
+        id: "okupasi", n: "03", icon: HandHelping, title: "Terapi Okupasi", color: "teal",
         points: ["Motorik halus / kasar", "Kemandirian atau ADL (makan, menulis, berpakaian)"],
     },
     {
-        id: "perilaku", n: "04", icon: Star, title: "Terapi Perilaku", color: "green",
+        id: "perilaku", n: "04", icon: Star, title: "Terapi Perilaku", color: "peach",
         points: ["Manajemen perilaku", "Kepatuhan instruksi", "Pretend play", "Keterampilan sosial"],
     },
     {
-        id: "pedagogik", n: "05", icon: BookOpen, title: "Terapi Pedagogik", color: "red",
+        id: "pedagogik", n: "05", icon: BookOpen, title: "Terapi Pedagogik", color: "teal",
         points: ["Remedial", "Literasi / numerasi", "Strategi belajar", "Fungsi eksekutif"],
     },
     {
-        id: "fisioterapi", n: "06", icon: Activity, title: "Fisioterapi", color: "blue",
+        id: "fisioterapi", n: "06", icon: Activity, title: "Fisioterapi", color: "peach",
         points: ["Kekuatan & kontrol otot", "Postur", "Keseimbangan & koordinasi"],
     },
 ];
 
+// Dua aksen saja: teal (utama) dan peach (pendamping), bergantian per kartu.
 const C = {
-    blue: { icon: "bg-brand-blue text-white", num: "text-brand-blue/10", link: "text-brand-blue", hover: "hover:border-brand-blue/40", check: "text-brand-blue" },
-    green: { icon: "bg-brand-green text-white", num: "text-brand-green/10", link: "text-brand-green", hover: "hover:border-brand-green/40", check: "text-brand-green" },
-    red: { icon: "bg-brand-red text-white", num: "text-brand-red/10", link: "text-brand-red", hover: "hover:border-brand-red/40", check: "text-brand-red" },
-    yellow: { icon: "bg-brand-yellow text-yamet-ink", num: "text-brand-yellow/25", link: "text-yamet-ink", hover: "hover:border-brand-yellow/50", check: "text-yamet-teal" },
+    teal: { icon: "bg-yamet-teal-600 text-white", num: "text-yamet-teal/10", link: "text-yamet-teal-600", hover: "hover:border-yamet-teal/40", check: "text-yamet-teal-600" },
+    peach: { icon: "bg-yamet-peach text-yamet-ink", num: "text-yamet-orange/15", link: "text-yamet-teal-600", hover: "hover:border-yamet-peach", check: "text-yamet-orange" },
 };
 
 export default function Services() {
@@ -45,8 +44,8 @@ export default function Services() {
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-7">
-                        <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
-                            Layanan Kami
+                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 before:h-px before:w-8 before:bg-yamet-teal-600">
+                            Layanan kami
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
                             Layanan Terapi
@@ -69,7 +68,7 @@ export default function Services() {
                         const Icon = s.icon;
                         const c = C[s.color];
                         return (
-                            <motion.div key={s.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }} data-testid={`service-card-${s.id}`} className={`group relative flex flex-col rounded-2xl border border-yamet-ink/10 bg-white p-6 transition-colors duration-300 ${c.hover}`}>
+                            <motion.div key={s.id} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.5, delay: i * 0.07, ease: "easeOut" }} data-testid={`service-card-${s.id}`} className={`group relative flex flex-col rounded-3xl border border-yamet-ink/10 bg-white p-6 transition-colors duration-300 ${c.hover}`}>
                                 <span className={`pointer-events-none absolute right-5 top-3 font-heading text-5xl font-black leading-none ${c.num}`}>{s.n}</span>
                                 <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${c.icon}`}>
                                     <Icon className="h-6 w-6" />

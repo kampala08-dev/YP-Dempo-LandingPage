@@ -20,7 +20,7 @@ export default function Footer() {
                 <div className="lg:col-span-5">
                     <Logo className="h-14" />
                     <p className="mt-4 max-w-sm text-sm leading-relaxed text-yamet-ink-muted">
-                        Pusat terapi anak berkebutuhan khusus di Palembang, melayani sejak {SEJAK_TAHUN}.
+                        Pusat terapi anak berkebutuhan khusus di Palembang, sejak tahun {SEJAK_TAHUN}.
                         Terapi wicara, sensori integrasi, okupasi, perilaku, pedagogik, dan fisioterapi.
                     </p>
                     <div className="mt-5 flex items-center gap-2">
