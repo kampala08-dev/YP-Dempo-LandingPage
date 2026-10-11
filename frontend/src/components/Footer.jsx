@@ -1,12 +1,14 @@
 import React from "react";
-import { Instagram, MapPin, Phone } from "lucide-react";
+import { Instagram, MapPin, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import {
     NAV_LINKS,
     ADDRESS,
     INSTAGRAM_HANDLE,
     INSTAGRAM_URL,
-    WHATSAPP_NUMBER,
+    WHATSAPP_DISPLAY,
+    SEJAK_TAHUN,
     waLink,
 } from "../data/site";
 
@@ -18,8 +20,8 @@ export default function Footer() {
                 <div className="lg:col-span-5">
                     <Logo className="h-14" />
                     <p className="mt-4 max-w-sm text-sm leading-relaxed text-yamet-ink-muted">
-                        Pusat tumbuh kembang anak yang hangat dan terpercaya di Palembang. Kami
-                        mendampingi anak Anda mencapai potensi terbaiknya melalui intervensi dini.
+                        Pusat terapi anak berkebutuhan khusus di Palembang, melayani sejak {SEJAK_TAHUN}.
+                        Terapi wicara, sensori integrasi, okupasi, perilaku, pedagogik, dan fisioterapi.
                     </p>
                     <div className="mt-5 flex items-center gap-2">
                         <a
@@ -28,7 +30,7 @@ export default function Footer() {
                             rel="noopener noreferrer"
                             data-testid="footer-instagram"
                             aria-label="Instagram YAMET Palembang"
-                            className="flex h-10 w-10 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal transition-all hover:-translate-y-0.5 hover:bg-yamet-teal hover:text-white"
+                            className="flex h-11 w-11 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal-600 transition-all hover:-translate-y-0.5 hover:bg-yamet-teal-600 hover:text-white active:translate-y-0 active:scale-[0.98]"
                         >
                             <Instagram className="h-4 w-4" />
                         </a>
@@ -38,24 +40,24 @@ export default function Footer() {
                             rel="noopener noreferrer"
                             data-testid="footer-whatsapp"
                             aria-label="WhatsApp YAMET Palembang"
-                            className="flex h-10 w-10 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal transition-all hover:-translate-y-0.5 hover:bg-whatsapp hover:text-white"
+                            className="flex h-11 w-11 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal-600 transition-all hover:-translate-y-0.5 hover:bg-whatsapp hover:text-white active:translate-y-0 active:scale-[0.98]"
                         >
-                            <Phone className="h-4 w-4" />
+                            <MessageCircle className="h-4 w-4" />
                         </a>
                     </div>
                 </div>
 
                 <div className="lg:col-span-3">
-                    <h4 className="font-heading text-sm font-extrabold uppercase tracking-wider text-yamet-ink">
-                        Tautan Cepat
-                    </h4>
+                    <h2 className="font-heading text-sm font-extrabold uppercase tracking-wider text-yamet-ink">
+                        Tautan cepat
+                    </h2>
                     <ul className="mt-4 space-y-2.5 text-sm">
                         {NAV_LINKS.map((l) => (
                             <li key={l.href}>
                                 <a
                                     href={l.href}
                                     data-testid={`footer-link-${l.href.replace("#", "")}`}
-                                    className="text-yamet-ink-muted hover:text-yamet-teal"
+                                    className="inline-block py-1 text-yamet-ink-muted transition-colors hover:text-yamet-teal-600"
                                 >
                                     {l.label}
                                 </a>
@@ -65,23 +67,23 @@ export default function Footer() {
                 </div>
 
                 <div className="lg:col-span-4">
-                    <h4 className="font-heading text-sm font-extrabold uppercase tracking-wider text-yamet-ink">
-                        Hubungi Kami
-                    </h4>
+                    <h2 className="font-heading text-sm font-extrabold uppercase tracking-wider text-yamet-ink">
+                        Hubungi kami
+                    </h2>
                     <ul className="mt-4 space-y-3 text-sm">
                         <li className="flex items-start gap-2.5 text-yamet-ink-muted">
                             <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-yamet-teal" />
                             <span>{ADDRESS}</span>
                         </li>
                         <li className="flex items-start gap-2.5 text-yamet-ink-muted">
-                            <Phone className="mt-0.5 h-4 w-4 shrink-0 text-yamet-teal" />
+                            <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-yamet-teal" />
                             <a
                                 href={waLink()}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hover:text-yamet-teal"
+                                className="inline-block py-1 transition-colors hover:text-yamet-teal-600"
                             >
-                                +{WHATSAPP_NUMBER}
+                                {WHATSAPP_DISPLAY}
                             </a>
                         </li>
                         <li className="flex items-start gap-2.5 text-yamet-ink-muted">
@@ -90,7 +92,7 @@ export default function Footer() {
                                 href={INSTAGRAM_URL}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="hover:text-yamet-teal"
+                                className="inline-block py-1 transition-colors hover:text-yamet-teal-600"
                             >
                                 {INSTAGRAM_HANDLE}
                             </a>
@@ -100,9 +102,12 @@ export default function Footer() {
             </div>
 
             <div className="mx-auto mt-12 max-w-7xl border-t border-yamet-teal/10 px-5 pt-6 lg:px-8">
-                <p className="text-center text-xs text-yamet-ink-muted">
-                    © {year} YAMET Palembang Dempo. Semua hak dilindungi.
-                </p>
+                <div className="flex flex-col items-center justify-between gap-3 text-xs text-yamet-ink-muted sm:flex-row">
+                    <p>© {year} YAMET Palembang Dempo. Semua hak dilindungi.</p>
+                    <Link to="/privasi" data-testid="footer-privasi" className="inline-block py-1 font-semibold transition-colors hover:text-yamet-teal-600">
+                        Kebijakan privasi
+                    </Link>
+                </div>
             </div>
         </footer>
     );

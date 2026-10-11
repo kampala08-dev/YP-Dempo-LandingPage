@@ -6,31 +6,31 @@ const STEPS = [
     {
         n: "01",
         icon: Eye,
-        title: "Observasi Anak",
+        title: "Observasi anak",
         desc: "Anak diobservasi langsung oleh tim terapis untuk memahami kondisi dan kebutuhannya.",
     },
     {
         n: "02",
         icon: ClipboardCheck,
-        title: "Asesmen Awal",
+        title: "Asesmen awal",
         desc: "Asesmen mendalam oleh terapis & psikolog sebagai dasar penyusunan program.",
     },
     {
         n: "03",
         icon: FileText,
-        title: "Program Individual",
+        title: "Program individual",
         desc: "Program terapi disusun khusus berdasarkan hasil asesmen — bukan satu solusi untuk semua.",
     },
     {
         n: "04",
         icon: HeartHandshake,
-        title: "Sesi Terapi Rutin",
+        title: "Sesi terapi rutin",
         desc: "Pendampingan rutin yang hangat, terstruktur, dan menyenangkan untuk anak.",
     },
     {
         n: "05",
         icon: LineChart,
-        title: "Evaluasi & Laporan",
+        title: "Evaluasi & laporan",
         desc: "Update berkala untuk orang tua — transparan, terukur, dan komunikatif.",
     },
 ];
@@ -50,7 +50,7 @@ export default function Workflow() {
                     transition={{ duration: 0.6 }}
                     className="mx-auto max-w-2xl text-center"
                 >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
                         Alur Layanan
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
@@ -79,7 +79,7 @@ export default function Workflow() {
                                 viewport={{ once: true, margin: "-60px" }}
                                 transition={{ duration: 0.55, delay: i * 0.1 }}
                                 data-testid={`workflow-step-${i + 1}`}
-                                className="relative rounded-2xl border border-yamet-ink/10 bg-white p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-yamet-teal/40 hover:shadow-soft"
+                                className="relative rounded-2xl border border-yamet-ink/10 bg-white p-6 transition-colors duration-300 hover:border-yamet-teal/40"
                             >
                                 <div className="flex items-center gap-3">
                                     <div className="relative flex h-14 w-14 items-center justify-center rounded-xl bg-yamet-teal text-white">

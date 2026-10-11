@@ -24,7 +24,7 @@ const CONDITIONS = [
     },
     {
         title: "Kesulitan fokus & perilaku",
-        desc: "Anak sulit memusatkan perhatian, mudah teralihkan, atau menunjukkan emosi yang sulit dikendalikan. Pendekatan perilaku dan dukungan psikologis membantunya menjadi lebih fokus, tenang, dan adaptif.",
+        desc: "Anak sulit memusatkan perhatian, mudah teralihkan, atau menunjukkan emosi yang sulit dikendalikan. Terapi perilaku dan pedagogik membantunya menjadi lebih fokus, tenang, dan adaptif.",
     },
 ];
 
@@ -37,7 +37,7 @@ export default function Conditions() {
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
                     <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-7">
-                        <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
+                        <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
                             Kondisi yang Kami Tangani
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
@@ -54,7 +54,7 @@ export default function Conditions() {
 
                 <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
                     {CONDITIONS.map((c, i) => (
-                        <motion.div key={c.title} initial={{ opacity: 0, scale: 0.97, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.45, delay: i * 0.05 }} data-testid={`condition-${i}`} className="group rounded-2xl border border-yamet-ink/10 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-yamet-teal/40 hover:shadow-soft">
+                        <motion.div key={c.title} initial={{ opacity: 0, scale: 0.97, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.45, delay: i * 0.05 }} data-testid={`condition-${i}`} className="group rounded-2xl border border-yamet-ink/10 bg-white p-5 transition-colors duration-300 hover:border-yamet-teal/40">
                             <div className="flex items-start gap-2.5">
                                 <span className={`mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full transition-transform group-hover:scale-150 ${DOT[i % DOT.length]}`} />
                                 <h3 className="font-heading text-base font-extrabold leading-snug text-yamet-ink">{c.title}</h3>

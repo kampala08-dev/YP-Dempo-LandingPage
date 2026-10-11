@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Activity, Hand, MessageSquare, Heart, ShieldCheck, Sparkles } from "lucide-react";
+import { Activity, Hand, MessageSquare, Heart, Baby, Info, Sparkles } from "lucide-react";
 import { GROWTH_STAGES, STIMULASI } from "../data/growth";
 import { waLink } from "../data/site";
 
@@ -115,7 +115,7 @@ function cutout(url, frac = 0.8) {
                 resolve(url);
             }
         };
-        img.src = url + (url.includes("?") ? "&" : "?") + "ck=1";
+        img.src = url; // gambar lokal: cukup satu unduhan, cache dipakai bersama <img>
     });
 }
 
@@ -125,7 +125,7 @@ function useCutouts() {
         let alive = true;
         (async () => {
             for (const s of GROWTH_STAGES) {
-                const d = await cutout(s.image, s.scale);
+                const d = await cutout(s.image);
                 if (!alive) return;
                 setCut((prev) => ({ ...prev, [s.id]: d }));
             }
@@ -190,19 +190,19 @@ function Stimulasi({ stage }) {
 function Heading() {
     return (
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm backdrop-blur">
-                <ShieldCheck className="h-3.5 w-3.5" />
-                Perjalanan 0–5 Tahun
+            <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm backdrop-blur">
+                <Baby className="h-3.5 w-3.5" />
+                Perjalanan 0–5 tahun
             </div>
             <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                 Lihat si Kecil{" "}
                 <span className="relative inline-block">
-                    <span className="relative z-10 text-yamet-teal">Tumbuh &amp; Berkembang</span>
+                    <span className="relative z-10 text-yamet-teal-600">tumbuh &amp; berkembang</span>
                     <span className="absolute inset-x-0 bottom-1 -z-0 h-3 rounded-full bg-yamet-peach/50" />
                 </span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-yamet-ink-muted sm:text-lg">
-                Scroll perlahan dan saksikan tahap demi tahap tumbuh kembang anak — dari bayi hingga usia 5 tahun. Panduan ini gambaran umum, bukan diagnosis.
+                Gulir perlahan dan lihat tahap demi tahap tumbuh kembang anak, dari bayi hingga usia 5 tahun. Panduan ini gambaran umum, bukan diagnosis. Anak dalam ilustrasi bukan anak sungguhan.
             </p>
         </motion.div>
     );
@@ -212,8 +212,8 @@ function MedicalNote() {
     return (
         <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mx-auto mt-12 max-w-3xl rounded-3xl bg-yamet-teal-50/60 p-6 text-sm leading-relaxed text-yamet-ink-muted ring-1 ring-yamet-teal/15 sm:p-8 sm:text-base">
             <div className="mb-2 flex items-center gap-2 font-bold text-yamet-teal">
-                <ShieldCheck className="h-5 w-5" />
-                Catatan untuk Orang Tua
+                <Info className="h-5 w-5" />
+                Catatan untuk orang tua
             </div>
             Tahapan di atas adalah <strong>panduan edukatif</strong> (diadaptasi dari Denver II), bukan diagnosis. Setiap anak berkembang dengan kecepatan berbeda. Bila ada kekhawatiran,{" "}
             <a href={waLink()} target="_blank" rel="noopener noreferrer" className="font-bold text-yamet-teal underline-offset-2 hover:underline">konsultasi bersama tim YAMET</a>.
@@ -257,7 +257,7 @@ function PinnedJourney({ cut }) {
 
     return (
         <div ref={wrapRef} className="relative mt-8 hidden lg:block" style={{ height: `${N * 56}vh` }}>
-            <div className="sticky top-0 flex h-screen items-center">
+            <div className="sticky top-0 flex h-dvh items-center">
                 <div className="mx-auto grid w-full max-w-6xl grid-cols-12 items-center gap-6 px-8">
                     <div className="col-span-4">
                         <motion.div key={stage.id} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeOut" }}>
@@ -278,7 +278,8 @@ function PinnedJourney({ cut }) {
                                 <img
                                     key={s.id}
                                     src={cut[s.id] || s.image}
-                                    alt={`Bilal usia ${s.ageLabel}`}
+                                    alt={i === active ? `Ilustrasi anak usia ${s.ageLabel}` : ""}
+                                    aria-hidden={i !== active}
                                     loading="lazy"
                                     className="absolute inset-0 z-10 h-full w-full object-contain object-bottom transition-opacity duration-300 ease-out"
                                     style={{ opacity: i === active ? 1 : 0 }}
@@ -294,7 +295,7 @@ function PinnedJourney({ cut }) {
                         </motion.div>
                         <div className="mt-5 flex flex-col gap-1.5 border-l border-yamet-teal/15 pl-4">
                             {GROWTH_STAGES.map((s, i) => (
-                                <button key={s.id} onClick={() => goTo(i)} className={`group flex items-center gap-2 text-left text-xs transition-all ${i === active ? "font-extrabold text-yamet-teal" : "font-medium text-yamet-ink-muted/60 hover:text-yamet-ink-muted"}`}>
+                                <button key={s.id} type="button" onClick={() => goTo(i)} aria-current={i === active ? "step" : undefined} className={`group flex items-center gap-2 py-1 text-left text-xs transition-colors ${i === active ? "font-extrabold text-yamet-teal-600" : "font-medium text-yamet-ink-muted hover:text-yamet-ink"}`}>
                                     <span className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? "w-5 bg-yamet-teal" : "w-2 bg-yamet-teal/25 group-hover:w-3"}`} />
                                     {s.ageShort}
                                 </button>
@@ -314,7 +315,7 @@ function StackedJourney({ show, cut }) {
                 <motion.div key={s.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: "easeOut" }} className="mx-auto max-w-xl">
                     <div className="relative mx-auto mb-4 flex h-96 w-full max-w-[340px] items-end justify-center">
                         <div aria-hidden="true" className={`absolute left-1/2 top-1/2 h-[55%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl ${s.accent === "peach" ? "bg-yamet-peach/25" : "bg-yamet-teal/15"}`} />
-                        <img src={cut[s.id] || s.image} alt={`Bilal usia ${s.ageLabel}`} loading="lazy" className="relative z-10 h-full w-full object-contain object-bottom" draggable="false" />
+                        <img src={cut[s.id] || s.image} alt={`Ilustrasi anak usia ${s.ageLabel}`} loading="lazy" className="relative z-10 h-full w-full object-contain object-bottom" draggable="false" />
                     </div>
                     <div className={`mb-2 inline-flex rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider ${s.accent === "peach" ? "bg-yamet-peach/30 text-yamet-orange" : "bg-yamet-teal/10 text-yamet-teal"}`}>
                         Tahap {i + 1} dari {N}

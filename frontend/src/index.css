@@ -19,10 +19,21 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     letter-spacing: -0.01em;
+    text-wrap: balance;
+}
+
+p, li {
+    text-wrap: pretty;
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Elemen dekoratif & animasi masuk dari samping tidak boleh memicu gulir horizontal.
+   `clip` (bukan hidden) supaya position: sticky di dalamnya tetap bekerja. */
+html, body {
+    overflow-x: clip;
 }
 
 @layer base {
@@ -34,7 +45,7 @@ html {
         --card-foreground: 205 33% 18%;
         --popover: 0 0% 100%;
         --popover-foreground: 205 33% 18%;
-        --primary: 188 41% 39%;              /* #3A868F teal */
+        --primary: 188 45% 33%;              /* #2E7079 teal-600 */
         --primary-foreground: 0 0% 100%;
         --secondary: 192 53% 92%;            /* #E3F2F6 */
         --secondary-foreground: 188 41% 25%;
@@ -46,7 +57,7 @@ html {
         --destructive-foreground: 0 0% 100%;
         --border: 200 18% 92%;               /* #E5EBEF */
         --input: 200 18% 92%;
-        --ring: 188 41% 39%;
+        --ring: 188 45% 33%;
         --radius: 1rem;
     }
 }
@@ -129,7 +140,7 @@ html {
 
 /* Smooth focus rings (accessibility) */
 *:focus-visible {
-    outline: 2px solid #3A868F;
+    outline: 2px solid #2E7079;
     outline-offset: 3px;
     border-radius: 6px;
 }

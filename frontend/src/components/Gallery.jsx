@@ -76,7 +76,7 @@ export default function Gallery() {
                     transition={{ duration: 0.6 }}
                     className="mx-auto max-w-2xl text-center"
                 >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal shadow-sm">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
                         <Camera className="h-3.5 w-3.5" aria-hidden="true" />
                         Galeri Kegiatan
                     </div>

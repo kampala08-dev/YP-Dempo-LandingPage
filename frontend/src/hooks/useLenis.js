@@ -47,6 +47,10 @@ export default function useLenis() {
                 if (el) {
                     e.preventDefault();
                     lenis.scrollTo(el, { offset: -80 });
+                    // URL tetap bisa dibagikan & tombol kembali bekerja; fokus ikut pindah untuk pengguna keyboard
+                    window.history.pushState(null, "", href);
+                    if (!el.hasAttribute("tabindex")) el.setAttribute("tabindex", "-1");
+                    el.focus({ preventScroll: true });
                 }
             }
         };

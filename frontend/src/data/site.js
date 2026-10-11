@@ -1,6 +1,8 @@
 // Site-wide constants for YAMET Palembang Dempo
 
 export const WHATSAPP_NUMBER = "6281288080896";
+export const WHATSAPP_DISPLAY = "+62 812-8808-0896";
+export const SEJAK_TAHUN = 2023;
 
 export const WA_DEFAULT_MESSAGE =
     "Halo YAMET Palembang Dempo, saya ingin berkonsultasi mengenai tumbuh kembang anak saya.";
@@ -13,7 +15,7 @@ export const NAV_LINKS = [
     { label: "Galeri", href: "#galeri" },
     { label: "Tumbuh Kembang", href: "#tumbuh-kembang" },
     { label: "Tentang", href: "#mengapa-yamet" },
-    { label: "Metode", href: "#alur" },
+    { label: "Alur", href: "#alur" },
     { label: "Testimoni", href: "#testimoni" },
     { label: "Kontak", href: "#kontak" },
 ];

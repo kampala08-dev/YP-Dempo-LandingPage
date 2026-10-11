@@ -16,7 +16,7 @@ export default function ClosingCta() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.7 }}
-                    className="relative overflow-hidden rounded-[36px] bg-yamet-teal p-10 text-center text-white shadow-glow sm:p-14 lg:p-16"
+                    className="relative overflow-hidden rounded-[36px] bg-yamet-teal-600 p-10 text-center text-white shadow-glow sm:p-14 lg:p-16"
                 >
                     {/* Decorative blobs */}
                     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -33,14 +33,14 @@ export default function ClosingCta() {
                         transition={{ duration: 0.6, delay: 0.1, type: "spring", stiffness: 150 }}
                         className="relative mx-auto mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 backdrop-blur"
                     >
-                        <Heart className="h-8 w-8 text-yamet-peach" fill="currentColor" />
+                        <Heart className="h-8 w-8 text-yamet-peach" fill="currentColor" aria-hidden="true" />
                     </motion.div>
 
                     <h2 className="relative font-heading text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
                         Mulai perjalanan tumbuh kembang
-                        <span className="block text-yamet-peach">anak Anda hari ini.</span>
+                        <span className="block text-yamet-peach-50">anak Anda hari ini.</span>
                     </h2>
-                    <p className="relative mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg">
+                    <p className="relative mx-auto mt-5 max-w-xl text-base leading-relaxed text-white sm:text-lg">
                         Satu pesan WhatsApp untuk percakapan yang bisa mengubah hari-hari si kecil.
                         Tim YAMET siap mendengarkan Anda.
                     </p>
@@ -52,7 +52,7 @@ export default function ClosingCta() {
                         data-testid="closing-cta-whatsapp"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
-                        className="relative mt-8 inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-extrabold text-yamet-teal shadow-xl transition-shadow hover:shadow-2xl sm:text-lg"
+                        className="relative mt-8 inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-extrabold text-yamet-teal-700 shadow-glow transition-shadow hover:shadow-2xl sm:text-lg"
                     >
                         <MessageCircle className="h-5 w-5" />
                         Konsultasi via WhatsApp
