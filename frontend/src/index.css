@@ -10,8 +10,8 @@
 body {
     margin: 0;
     font-family: var(--font-body);
-    background: #FDFBF7;
-    color: #1F333E;
+    background: #FFF9E6;
+    color: #3B2F1E;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -38,26 +38,26 @@ html, body {
 
 @layer base {
     :root {
-        /* YAMET light theme — soft teal & peach */
-        --background: 36 50% 98%;            /* #FDFBF7 */
-        --foreground: 205 33% 18%;           /* #1F333E */
+        /* YAMET — kuning hangat, cokelat tua, oranye-bata */
+        --background: 46 100% 95%;           /* #FFF9E6 */
+        --foreground: 35 33% 17%;            /* #3B2F1E */
         --card: 0 0% 100%;
-        --card-foreground: 205 33% 18%;
+        --card-foreground: 35 33% 17%;
         --popover: 0 0% 100%;
-        --popover-foreground: 205 33% 18%;
-        --primary: 188 45% 33%;              /* #2E7079 teal-600 */
+        --popover-foreground: 35 33% 17%;
+        --primary: 17 88% 40%;               /* #C2410C brick */
         --primary-foreground: 0 0% 100%;
-        --secondary: 192 53% 92%;            /* #E3F2F6 */
-        --secondary-foreground: 188 41% 25%;
-        --muted: 200 20% 96%;
-        --muted-foreground: 200 14% 42%;     /* #5B707B */
-        --accent: 12 100% 83%;               /* #FFB5A7 peach */
-        --accent-foreground: 205 33% 18%;
+        --secondary: 48 100% 88%;            /* #FFF3C4 */
+        --secondary-foreground: 40 100% 33%;
+        --muted: 45 60% 95%;
+        --muted-foreground: 35 28% 34%;      /* #6E5A3E */
+        --accent: 29 100% 83%;               /* #FFD2A6 aprikot */
+        --accent-foreground: 35 33% 17%;
         --destructive: 0 70% 55%;
         --destructive-foreground: 0 0% 100%;
-        --border: 200 18% 92%;               /* #E5EBEF */
-        --input: 200 18% 92%;
-        --ring: 188 45% 33%;
+        --border: 42 40% 88%;                /* #EBE3CF */
+        --input: 42 40% 88%;
+        --ring: 17 88% 40%;
         --radius: 1rem;
     }
 }
@@ -129,26 +129,26 @@ html, body {
 /* Decorative dotted/grain texture */
 .grain-bg {
     background-image:
-        radial-gradient(circle at 1px 1px, rgba(31, 51, 62, 0.06) 1px, transparent 0);
+        radial-gradient(circle at 1px 1px, rgba(59, 47, 30, 0.07) 1px, transparent 0);
     background-size: 22px 22px;
 }
 
 /* Sticky timeline rail draw */
 .timeline-rail {
-    background: linear-gradient(180deg, #3A868F 0%, #5BA9B3 50%, #FFB5A7 100%);
+    background: linear-gradient(180deg, #C2410C 0%, #F4C20D 55%, #FFD2A6 100%);
 }
 
 /* Smooth focus rings (accessibility) */
 *:focus-visible {
-    outline: 2px solid #2E7079;
+    outline: 2px solid #C2410C;
     outline-offset: 3px;
     border-radius: 6px;
 }
 
 /* Selection */
 ::selection {
-    background: #FFB5A7;
-    color: #1F333E;
+    background: #F4C20D;
+    color: #3B2F1E;
 }
 
 /* Consistent anchor offset for fixed navbar */

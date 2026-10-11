@@ -35,7 +35,7 @@ export default function FAQ() {
         <section
             id="faq"
             data-testid="faq-section"
-            className="relative bg-yamet-teal-50/30 py-16 sm:py-20 lg:py-24"
+            className="relative bg-yamet-sun-50/30 py-16 sm:py-20 lg:py-24"
         >
             <div className="mx-auto max-w-4xl px-5 lg:px-8">
                 <motion.div
@@ -45,12 +45,12 @@ export default function FAQ() {
                     transition={{ duration: 0.6 }}
                     className="mx-auto max-w-2xl text-center"
                 >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-gold/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-brick shadow-sm">
                         Pertanyaan umum
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Hal yang sering{" "}
-                        <span className="text-yamet-teal">ditanyakan orang tua.</span>
+                        <span className="text-yamet-gold">ditanyakan orang tua.</span>
                     </h2>
                 </motion.div>
 
@@ -66,12 +66,12 @@ export default function FAQ() {
                             <AccordionItem
                                 key={i}
                                 value={`item-${i}`}
-                                className="border-b border-yamet-teal/15"
+                                className="border-b border-yamet-gold/15"
                                 data-testid={`faq-item-${i}`}
                             >
                                 <AccordionTrigger
                                     data-testid={`faq-trigger-${i}`}
-                                    className="py-5 text-left font-heading text-base font-extrabold text-yamet-ink transition-colors hover:text-yamet-teal-600 hover:no-underline sm:text-lg"
+                                    className="py-5 text-left font-heading text-base font-extrabold text-yamet-ink transition-colors hover:text-yamet-brick hover:no-underline sm:text-lg"
                                 >
                                     {f.q}
                                 </AccordionTrigger>

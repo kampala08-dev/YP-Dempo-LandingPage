@@ -151,12 +151,12 @@ export default function Testimonials() {
                     transition={{ duration: 0.6 }}
                     className="mx-auto max-w-2xl text-center"
                 >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-gold/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-brick shadow-sm">
                         Cerita orang tua
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Kepercayaan keluarga{" "}
-                        <span className="text-yamet-teal">jadi semangat kami.</span>
+                        <span className="text-yamet-gold">jadi semangat kami.</span>
                     </h2>
 
                     {/* Google rating badge */}
@@ -204,7 +204,7 @@ export default function Testimonials() {
                                     “{t.quote}”
                                 </p>
                                 <div className="mt-8 flex items-center gap-4">
-                                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yamet-teal-600 font-heading text-base font-extrabold text-white" aria-hidden="true">
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yamet-brick font-heading text-base font-extrabold text-white" aria-hidden="true">
                                         {t.parent.charAt(0)}
                                     </div>
                                     <div>
@@ -222,7 +222,7 @@ export default function Testimonials() {
                             onClick={prev}
                             data-testid="testimonial-prev"
                             aria-label="Testimoni sebelumnya"
-                            className="flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-teal-600 transition-all hover:-translate-y-0.5 hover:border-yamet-teal/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
+                            className="flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-brick transition-all hover:-translate-y-0.5 hover:border-yamet-gold/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
                         >
                             <ChevronLeft className="h-5 w-5" />
                         </button>
@@ -230,7 +230,7 @@ export default function Testimonials() {
                             className="min-w-[64px] text-center font-heading text-sm font-bold tabular-nums text-yamet-ink-muted"
                             data-testid="testimonial-counter"
                         >
-                            <span className="text-base text-yamet-teal-600">{idx + 1}</span> / {total}
+                            <span className="text-base text-yamet-brick">{idx + 1}</span> / {total}
                         </div>
                         <button
                             type="button"
@@ -238,7 +238,7 @@ export default function Testimonials() {
                             aria-pressed={paused}
                             aria-label={paused ? "Putar otomatis" : "Jeda putar otomatis"}
                             data-testid="testimonial-pause"
-                            className={`flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-teal-600 transition-all hover:border-yamet-teal/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]`}
+                            className={`flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-brick transition-all hover:border-yamet-gold/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]`}
                         >
                             {paused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}
                         </button>
@@ -247,7 +247,7 @@ export default function Testimonials() {
                             onClick={next}
                             data-testid="testimonial-next"
                             aria-label="Testimoni berikutnya"
-                            className="flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-teal-600 transition-all hover:-translate-y-0.5 hover:border-yamet-teal/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
+                            className="flex h-11 w-11 items-center justify-center rounded-full border border-yamet-ink/10 bg-white text-yamet-brick transition-all hover:-translate-y-0.5 hover:border-yamet-gold/40 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
                         >
                             <ChevronRight className="h-5 w-5" />
                         </button>
@@ -259,7 +259,7 @@ export default function Testimonials() {
                             target="_blank"
                             rel="noopener noreferrer"
                             data-testid="testimonials-google-link"
-                            className="inline-flex items-center gap-2 rounded-full border-2 border-yamet-teal/30 bg-white px-6 py-3 text-sm font-bold text-yamet-teal-600 transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-teal-600 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
+                            className="inline-flex items-center gap-2 rounded-full border-2 border-yamet-gold/30 bg-white px-6 py-3 text-sm font-bold text-yamet-brick transition-all duration-300 hover:-translate-y-0.5 hover:border-yamet-brick hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
                         >
                             Lihat semua {GOOGLE_REVIEW_COUNT} ulasan di Google
                             <ExternalLink className="h-4 w-4" />

@@ -25,7 +25,7 @@ function Landing() {
         <div className="min-h-dvh bg-yamet-cream text-yamet-ink" data-testid="landing-root">
             <a
                 href="#konten"
-                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-yamet-teal-600 focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-white"
+                className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-full focus:bg-yamet-brick focus:px-5 focus:py-3 focus:text-sm focus:font-bold focus:text-white"
             >
                 Lewati ke konten
             </a>

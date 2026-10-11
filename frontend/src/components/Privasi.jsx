@@ -18,7 +18,7 @@ export default function Privasi() {
     return (
         <main className="min-h-dvh bg-yamet-cream px-5 py-10 text-yamet-ink lg:px-8">
             <article className="mx-auto max-w-2xl">
-                <Link to="/" className="inline-flex items-center gap-2 text-sm font-bold text-yamet-teal-600 hover:underline">
+                <Link to="/" className="inline-flex items-center gap-2 text-sm font-bold text-yamet-brick hover:underline">
                     <ArrowLeft className="h-4 w-4" aria-hidden="true" />
                     Kembali ke beranda
                 </Link>
@@ -62,7 +62,7 @@ export default function Privasi() {
                         <p className="mt-2">
                             Anda dapat meminta data yang pernah Anda kirim untuk dilihat atau dihapus kapan saja lewat
                             WhatsApp{" "}
-                            <a href={waLink("Halo YAMET, saya ingin bertanya soal data pribadi saya.")} target="_blank" rel="noopener noreferrer" className="font-semibold text-yamet-teal-600 underline underline-offset-2">
+                            <a href={waLink("Halo YAMET, saya ingin bertanya soal data pribadi saya.")} target="_blank" rel="noopener noreferrer" className="font-semibold text-yamet-brick underline underline-offset-2">
                                 {WHATSAPP_DISPLAY}
                             </a>
                             .

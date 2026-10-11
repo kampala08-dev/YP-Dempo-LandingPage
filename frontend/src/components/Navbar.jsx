@@ -49,13 +49,13 @@ export default function Navbar() {
                             href={l.href}
                             data-testid={`nav-link-${l.href.replace("#", "")}`}
                             aria-current={active === l.href.slice(1) ? "location" : undefined}
-                            className={`group relative py-2 text-sm font-semibold transition-colors hover:text-yamet-teal-600 ${
-                                active === l.href.slice(1) ? "text-yamet-teal-600" : "text-yamet-ink/80"
+                            className={`group relative py-2 text-sm font-semibold transition-colors hover:text-yamet-brick ${
+                                active === l.href.slice(1) ? "text-yamet-brick" : "text-yamet-ink/80"
                             }`}
                         >
                             {l.label}
                             <span
-                                className={`absolute -bottom-0.5 left-0 h-0.5 w-full origin-left rounded-full bg-yamet-teal-600 transition-transform duration-300 ${
+                                className={`absolute -bottom-0.5 left-0 h-0.5 w-full origin-left rounded-full bg-yamet-brick transition-transform duration-300 ${
                                     active === l.href.slice(1) ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                                 }`}
                             />
@@ -68,7 +68,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     data-testid="navbar-cta-whatsapp"
-                    className="hidden items-center gap-2 rounded-full bg-yamet-teal-600 px-5 py-2.5 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-teal-700 hover:shadow-lg active:translate-y-0 active:scale-[0.98] lg:inline-flex"
+                    className="hidden items-center gap-2 rounded-full bg-yamet-brick px-5 py-2.5 text-sm font-bold text-white shadow-glow transition-all duration-300 hover:-translate-y-0.5 hover:bg-yamet-brick-dark hover:shadow-lg active:translate-y-0 active:scale-[0.98] lg:inline-flex"
                 >
                     <MessageCircle className="h-4 w-4" />
                     Konsultasi
@@ -95,7 +95,7 @@ export default function Navbar() {
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25, ease: "easeOut" }}
                         id="menu-mobile"
-                        className="overflow-hidden border-t border-yamet-teal/10 bg-white/95 backdrop-blur-xl lg:hidden"
+                        className="overflow-hidden border-t border-yamet-gold/10 bg-white/95 backdrop-blur-xl lg:hidden"
                         data-testid="navbar-mobile-menu"
                     >
                         <div className="space-y-1 px-5 py-4">
@@ -105,7 +105,7 @@ export default function Navbar() {
                                     href={l.href}
                                     onClick={() => setOpen(false)}
                                     data-testid={`nav-link-mobile-${l.href.replace("#", "")}`}
-                                    className="block rounded-xl px-3 py-3 text-base font-semibold text-yamet-ink transition-colors hover:bg-yamet-teal-50 hover:text-yamet-teal-600 active:bg-yamet-teal-100"
+                                    className="block rounded-xl px-3 py-3 text-base font-semibold text-yamet-ink transition-colors hover:bg-yamet-sun-50 hover:text-yamet-brick active:bg-yamet-sun-100"
                                 >
                                     {l.label}
                                 </a>
@@ -115,7 +115,7 @@ export default function Navbar() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 data-testid="navbar-mobile-cta-whatsapp"
-                                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-yamet-teal-600 px-5 py-3 text-sm font-bold text-white shadow-glow transition-all hover:bg-yamet-teal-700 active:translate-y-0 active:scale-[0.98]"
+                                className="mt-2 flex items-center justify-center gap-2 rounded-full bg-yamet-brick px-5 py-3 text-sm font-bold text-white shadow-glow transition-all hover:bg-yamet-brick-dark active:translate-y-0 active:scale-[0.98]"
                             >
                                 <MessageCircle className="h-4 w-4" />
                                 Konsultasi

@@ -16,7 +16,7 @@ export default function ClosingCta() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.7 }}
-                    className="relative overflow-hidden rounded-5xl bg-yamet-teal-600 p-10 text-center text-white shadow-glow sm:p-14 lg:p-16"
+                    className="relative overflow-hidden rounded-5xl bg-yamet-brick p-10 text-center text-white shadow-glow sm:p-14 lg:p-16"
                 >
                     {/* Decorative blobs */}
                     <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -52,7 +52,7 @@ export default function ClosingCta() {
                         data-testid="closing-cta-whatsapp"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
-                        className="relative mt-8 inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-extrabold text-yamet-teal-700 shadow-glow transition-shadow hover:shadow-2xl sm:text-lg"
+                        className="relative mt-8 inline-flex items-center gap-2.5 rounded-full bg-white px-8 py-4 text-base font-extrabold text-yamet-brick-dark shadow-glow transition-shadow hover:shadow-2xl sm:text-lg"
                     >
                         <MessageCircle className="h-5 w-5" />
                         Konsultasi via WhatsApp

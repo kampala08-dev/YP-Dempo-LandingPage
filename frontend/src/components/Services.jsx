@@ -34,8 +34,8 @@ const SERVICES = [
 
 // Dua aksen saja: teal (utama) dan peach (pendamping), bergantian per kartu.
 const C = {
-    teal: { icon: "bg-yamet-teal-600 text-white", num: "text-yamet-teal/10", link: "text-yamet-teal-600", hover: "hover:border-yamet-teal/40", check: "text-yamet-teal-600" },
-    peach: { icon: "bg-yamet-peach text-yamet-ink", num: "text-yamet-orange/15", link: "text-yamet-teal-600", hover: "hover:border-yamet-peach", check: "text-yamet-orange" },
+    teal: { icon: "bg-yamet-brick text-white", num: "text-yamet-gold/10", link: "text-yamet-brick", hover: "hover:border-yamet-gold/40", check: "text-yamet-brick" },
+    peach: { icon: "bg-yamet-peach text-yamet-ink", num: "text-yamet-orange/15", link: "text-yamet-brick", hover: "hover:border-yamet-peach", check: "text-yamet-orange" },
 };
 
 export default function Services() {
@@ -44,19 +44,19 @@ export default function Services() {
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-7">
-                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 before:h-px before:w-8 before:bg-yamet-teal-600">
+                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-brick before:h-px before:w-8 before:bg-yamet-brick">
                             Layanan kami
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
                             Layanan Terapi
-                            <span className="block text-yamet-teal">untuk si kecil.</span>
+                            <span className="block text-yamet-gold">untuk si kecil.</span>
                         </h2>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="lg:col-span-5 lg:pb-2">
                         <p className="text-base leading-relaxed text-yamet-ink-muted sm:text-lg">
                             Rangkaian layanan terapi YAMET yang bekerja bersama untuk mendukung perkembangan si kecil secara utuh — disusun individual sesuai kebutuhan tiap anak.
                         </p>
-                        <a href={waLink("Halo YAMET, saya ingin konsultasi soal tumbuh kembang anak.")} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full bg-yamet-teal-600 px-5 py-3 text-sm font-bold text-white shadow-soft transition-all duration-300 hover:bg-yamet-teal-700 active:translate-y-0 active:scale-[0.98]">
+                        <a href={waLink("Halo YAMET, saya ingin konsultasi soal tumbuh kembang anak.")} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 rounded-full bg-yamet-brick px-5 py-3 text-sm font-bold text-white shadow-soft transition-all duration-300 hover:bg-yamet-brick-dark active:translate-y-0 active:scale-[0.98]">
                             Konsultasi
                             <ArrowUpRight className="h-4 w-4" />
                         </a>

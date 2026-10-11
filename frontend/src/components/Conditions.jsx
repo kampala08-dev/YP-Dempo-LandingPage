@@ -29,7 +29,7 @@ const CONDITIONS = [
 ];
 
 // Aksen bergantian teal/peach (bukan pelangi) — konsisten dengan kartu layanan.
-const DOT = ["bg-yamet-teal-600", "bg-yamet-peach"];
+const DOT = ["bg-yamet-brick", "bg-yamet-peach"];
 
 export default function Conditions() {
     return (
@@ -37,12 +37,12 @@ export default function Conditions() {
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
                     <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="lg:col-span-7">
-                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 before:h-px before:w-8 before:bg-yamet-teal-600">
+                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-brick before:h-px before:w-8 before:bg-yamet-brick">
                             Kondisi yang kami tangani
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
                             Kami hadir untuk{" "}
-                            <span className="text-yamet-teal">setiap perjalanan</span> tumbuh kembang.
+                            <span className="text-yamet-gold">setiap perjalanan</span> tumbuh kembang.
                         </h2>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.1 }} className="lg:col-span-5 lg:pb-2">
@@ -54,7 +54,7 @@ export default function Conditions() {
 
                 <div className="mt-14 grid grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 lg:gap-y-10">
                     {CONDITIONS.map((c, i) => (
-                        <motion.div key={c.title} initial={{ opacity: 0, scale: 0.97, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.45, delay: i * 0.05 }} data-testid={`condition-${i}`} className="group border-l-2 border-yamet-teal/20 pl-5 transition-colors duration-300 hover:border-yamet-teal-600">
+                        <motion.div key={c.title} initial={{ opacity: 0, scale: 0.97, y: 10 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.45, delay: i * 0.05 }} data-testid={`condition-${i}`} className="group border-l-2 border-yamet-gold/20 pl-5 transition-colors duration-300 hover:border-yamet-brick">
                             <div className="flex items-start gap-2.5">
                                 <span className={`mt-2 h-2.5 w-2.5 shrink-0 rounded-full ${DOT[i % DOT.length]}`} aria-hidden="true" />
                                 <h3 className="font-heading text-lg font-extrabold leading-snug text-yamet-ink">{c.title}</h3>

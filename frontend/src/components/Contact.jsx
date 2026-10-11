@@ -18,8 +18,8 @@ import {
 const API = `${process.env.REACT_APP_BACKEND_URL || ""}/api`;
 
 const INPUT =
-    "mt-1.5 block w-full rounded-2xl border bg-yamet-cream/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/70 outline-none transition-all focus:bg-white focus:ring-2 focus:ring-yamet-teal/20";
-const inputCls = (bad) => `${INPUT} ${bad ? "border-brand-red focus:border-brand-red" : "border-yamet-teal/15 focus:border-yamet-teal"}`;
+    "mt-1.5 block w-full rounded-2xl border bg-yamet-cream/50 px-4 py-3 text-sm font-medium text-yamet-ink placeholder-yamet-ink-muted/70 outline-none transition-all focus:bg-white focus:ring-2 focus:ring-yamet-gold/20";
+const inputCls = (bad) => `${INPUT} ${bad ? "border-brand-red focus:border-brand-red" : "border-yamet-gold/15 focus:border-yamet-gold"}`;
 
 // Pemeriksaan sederhana di sisi pengunjung; aturan yang sama ada di server.
 function validate(f) {
@@ -81,12 +81,12 @@ export default function Contact() {
                     transition={{ duration: 0.6 }}
                     className="mx-auto max-w-2xl text-center"
                 >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-gold/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-brick shadow-sm">
                         Kontak & lokasi
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Mari{" "}
-                        <span className="text-yamet-teal">bertemu</span> & berbagi cerita.
+                        <span className="text-yamet-gold">bertemu</span> & berbagi cerita.
                     </h2>
                 </motion.div>
 
@@ -196,7 +196,7 @@ export default function Contact() {
                                     type="submit"
                                     disabled={submitting}
                                     data-testid="form-submit"
-                                    className="inline-flex items-center justify-center gap-2 rounded-full bg-yamet-teal-600 px-7 py-3.5 text-sm font-extrabold text-white shadow-glow transition-all hover:-translate-y-0.5 hover:bg-yamet-teal-700 active:translate-y-0 active:scale-[0.98] disabled:opacity-70"
+                                    className="inline-flex items-center justify-center gap-2 rounded-full bg-yamet-brick px-7 py-3.5 text-sm font-extrabold text-white shadow-glow transition-all hover:-translate-y-0.5 hover:bg-yamet-brick-dark active:translate-y-0 active:scale-[0.98] disabled:opacity-70"
                                 >
                                     {submitting ? (
                                         <Loader2 className="h-4 w-4 animate-spin" />
@@ -212,7 +212,7 @@ export default function Contact() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     data-testid="form-whatsapp-alt"
-                                    className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-yamet-teal/20 bg-white px-6 py-3 text-sm font-bold text-yamet-teal-600 transition-all duration-300 hover:border-yamet-teal-600 hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
+                                    className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-yamet-gold/20 bg-white px-6 py-3 text-sm font-bold text-yamet-brick transition-all duration-300 hover:border-yamet-brick hover:shadow-soft active:translate-y-0 active:scale-[0.98]"
                                 >
                                     <MessageCircle className="h-4 w-4" />
                                     Atau Chat WhatsApp
@@ -221,7 +221,7 @@ export default function Contact() {
                             <p className="mt-4 text-xs text-yamet-ink-muted">
                                 Dengan mengirim pesan ini, Anda setuju dihubungi tim YAMET untuk keperluan
                                 konsultasi. Data Anda hanya dipakai untuk itu — lihat{" "}
-                                <Link to="/privasi" className="font-semibold text-yamet-teal-600 underline underline-offset-2">
+                                <Link to="/privasi" className="font-semibold text-yamet-brick underline underline-offset-2">
                                     kebijakan privasi
                                 </Link>
                                 .
@@ -243,7 +243,7 @@ export default function Contact() {
                             </h3>
                             <ul className="mt-5 space-y-4 text-sm">
                                 <li className="flex items-start gap-3">
-                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal">
+                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yamet-sun-50 text-yamet-gold">
                                         <MapPin className="h-4 w-4" />
                                     </span>
                                     <a
@@ -251,13 +251,13 @@ export default function Contact() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         data-testid="contact-address"
-                                        className="leading-relaxed text-yamet-ink hover:text-yamet-teal"
+                                        className="leading-relaxed text-yamet-ink hover:text-yamet-gold"
                                     >
                                         {ADDRESS}
                                     </a>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal">
+                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yamet-sun-50 text-yamet-gold">
                                         <MessageCircle className="h-4 w-4" />
                                     </span>
                                     <a
@@ -265,13 +265,13 @@ export default function Contact() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         data-testid="contact-whatsapp"
-                                        className="font-semibold text-yamet-ink hover:text-yamet-teal"
+                                        className="font-semibold text-yamet-ink hover:text-yamet-gold"
                                     >
                                         {WHATSAPP_DISPLAY} (WhatsApp)
                                     </a>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal">
+                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yamet-sun-50 text-yamet-gold">
                                         <Instagram className="h-4 w-4" />
                                     </span>
                                     <a
@@ -279,13 +279,13 @@ export default function Contact() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         data-testid="contact-instagram"
-                                        className="font-semibold text-yamet-ink hover:text-yamet-teal"
+                                        className="font-semibold text-yamet-ink hover:text-yamet-gold"
                                     >
                                         {INSTAGRAM_HANDLE}
                                     </a>
                                 </li>
                                 <li className="flex items-start gap-3">
-                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yamet-teal-50 text-yamet-teal">
+                                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-yamet-sun-50 text-yamet-gold">
                                         <Clock className="h-4 w-4" />
                                     </span>
                                     <div className="flex-1">

@@ -5,9 +5,9 @@ import { GROWTH_STAGES, STIMULASI } from "../data/growth";
 import { waLink } from "../data/site";
 
 const CAT_META = {
-    gerakKasar: { icon: Activity, cls: "bg-yamet-teal/10 text-yamet-teal" },
+    gerakKasar: { icon: Activity, cls: "bg-yamet-gold/10 text-yamet-gold" },
     gerakHalus: { icon: Hand, cls: "bg-yamet-peach/30 text-yamet-orange" },
-    komunikasi: { icon: MessageSquare, cls: "bg-yamet-teal/10 text-yamet-teal" },
+    komunikasi: { icon: MessageSquare, cls: "bg-yamet-gold/10 text-yamet-gold" },
     sosial: { icon: Heart, cls: "bg-yamet-peach/20 text-yamet-orange" },
 };
 
@@ -142,7 +142,7 @@ function Categories({ stage }) {
                 const meta = CAT_META[cat.key];
                 const Icon = meta.icon;
                 return (
-                    <li key={cat.key} className="rounded-2xl bg-white/80 p-3.5 ring-1 ring-yamet-teal/10 shadow-soft backdrop-blur-sm">
+                    <li key={cat.key} className="rounded-2xl bg-white/80 p-3.5 ring-1 ring-yamet-gold/10 shadow-soft backdrop-blur-sm">
                         <div className="mb-1.5 flex items-center gap-2">
                             <span className={`flex h-7 w-7 items-center justify-center rounded-lg ${meta.cls}`}>
                                 <Icon className="h-3.5 w-3.5" />
@@ -152,7 +152,7 @@ function Categories({ stage }) {
                         <ul className="space-y-1 text-[12.5px] leading-snug text-yamet-ink-muted">
                             {cat.points.map((p, i) => (
                                 <li key={i} className="flex items-start gap-1.5">
-                                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-yamet-teal" />
+                                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-yamet-gold" />
                                     <span>{p}</span>
                                 </li>
                             ))}
@@ -190,15 +190,15 @@ function Stimulasi({ stage }) {
 function Heading() {
     return (
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border border-yamet-gold/15 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-brick shadow-sm backdrop-blur">
                 <Baby className="h-3.5 w-3.5" />
                 Perjalanan 0–5 tahun
             </div>
             <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                 Lihat si Kecil{" "}
                 <span className="relative inline-block">
-                    <span className="relative z-10 text-yamet-teal-600">tumbuh &amp; berkembang</span>
-                    <span className="absolute inset-x-0 bottom-1 -z-0 h-3 rounded-full bg-yamet-peach/50" />
+                    <span className="relative z-10 text-yamet-brick">tumbuh &amp; berkembang</span>
+                    <span className="absolute inset-x-0 bottom-1 -z-0 h-3 rounded-full bg-brand-yellow/60" />
                 </span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-yamet-ink-muted sm:text-lg">
@@ -210,13 +210,13 @@ function Heading() {
 
 function MedicalNote() {
     return (
-        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mx-auto mt-12 max-w-3xl rounded-3xl bg-yamet-teal-50/60 p-6 text-sm leading-relaxed text-yamet-ink-muted ring-1 ring-yamet-teal/15 sm:p-8 sm:text-base">
-            <div className="mb-2 flex items-center gap-2 font-bold text-yamet-teal">
+        <motion.div initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mx-auto mt-12 max-w-3xl rounded-3xl bg-yamet-sun-50/60 p-6 text-sm leading-relaxed text-yamet-ink-muted ring-1 ring-yamet-gold/15 sm:p-8 sm:text-base">
+            <div className="mb-2 flex items-center gap-2 font-bold text-yamet-gold">
                 <Info className="h-5 w-5" />
                 Catatan untuk orang tua
             </div>
             Tahapan di atas adalah <strong>panduan edukatif</strong> (diadaptasi dari Denver II), bukan diagnosis. Setiap anak berkembang dengan kecepatan berbeda. Bila ada kekhawatiran,{" "}
-            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="font-bold text-yamet-teal underline-offset-2 hover:underline">konsultasi bersama tim YAMET</a>.
+            <a href={waLink()} target="_blank" rel="noopener noreferrer" className="font-bold text-yamet-gold underline-offset-2 hover:underline">konsultasi bersama tim YAMET</a>.
         </motion.div>
     );
 }
@@ -261,7 +261,7 @@ function PinnedJourney({ cut }) {
                 <div className="mx-auto grid w-full max-w-6xl grid-cols-12 items-center gap-6 px-8">
                     <div className="col-span-4">
                         <motion.div key={stage.id} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeOut" }}>
-                            <div className={`mb-3 inline-flex rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-wider ${stage.accent === "peach" ? "bg-yamet-peach/30 text-yamet-orange" : "bg-yamet-teal/10 text-yamet-teal"}`}>
+                            <div className={`mb-3 inline-flex rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-wider ${stage.accent === "peach" ? "bg-yamet-peach/30 text-yamet-orange" : "bg-yamet-gold/10 text-yamet-gold"}`}>
                                 Tahap {active + 1} dari {N}
                             </div>
                             <h3 className="font-heading text-4xl font-extrabold leading-none text-yamet-ink xl:text-5xl">{stage.ageLabel}</h3>
@@ -272,8 +272,8 @@ function PinnedJourney({ cut }) {
 
                     <div className="col-span-4">
                         <div className="relative mx-auto aspect-[3/4] w-full max-w-[440px]">
-                            <div aria-hidden="true" className={`absolute left-1/2 top-1/2 h-[60%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl transition-colors duration-700 ${stage.accent === "peach" ? "bg-yamet-peach/25" : "bg-yamet-teal/15"}`} />
-                            <div className="pointer-events-none absolute inset-x-0 top-2 -z-0 text-center font-heading text-[120px] font-extrabold leading-none text-yamet-teal/5">{active + 1}</div>
+                            <div aria-hidden="true" className={`absolute left-1/2 top-1/2 h-[60%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl transition-colors duration-700 ${stage.accent === "peach" ? "bg-yamet-peach/25" : "bg-yamet-gold/15"}`} />
+                            <div className="pointer-events-none absolute inset-x-0 top-2 -z-0 text-center font-heading text-[120px] font-extrabold leading-none text-yamet-gold/5">{active + 1}</div>
                             {GROWTH_STAGES.map((s, i) => (
                                 <img
                                     key={s.id}
@@ -293,10 +293,10 @@ function PinnedJourney({ cut }) {
                         <motion.div key={stage.id} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, ease: "easeOut" }}>
                             <Stimulasi stage={stage} />
                         </motion.div>
-                        <div className="mt-5 flex flex-col gap-1.5 border-l border-yamet-teal/15 pl-4">
+                        <div className="mt-5 flex flex-col gap-1.5 border-l border-yamet-gold/15 pl-4">
                             {GROWTH_STAGES.map((s, i) => (
-                                <button key={s.id} type="button" onClick={() => goTo(i)} aria-current={i === active ? "step" : undefined} className={`group flex items-center gap-2 py-1 text-left text-xs transition-colors ${i === active ? "font-extrabold text-yamet-teal-600" : "font-medium text-yamet-ink-muted hover:text-yamet-ink"}`}>
-                                    <span className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? "w-5 bg-yamet-teal" : "w-2 bg-yamet-teal/25 group-hover:w-3"}`} />
+                                <button key={s.id} type="button" onClick={() => goTo(i)} aria-current={i === active ? "step" : undefined} className={`group flex items-center gap-2 py-1 text-left text-xs transition-colors ${i === active ? "font-extrabold text-yamet-brick" : "font-medium text-yamet-ink-muted hover:text-yamet-ink"}`}>
+                                    <span className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? "w-5 bg-yamet-gold" : "w-2 bg-yamet-gold/25 group-hover:w-3"}`} />
                                     {s.ageShort}
                                 </button>
                             ))}
@@ -314,10 +314,10 @@ function StackedJourney({ show, cut }) {
             {GROWTH_STAGES.map((s, i) => (
                 <motion.div key={s.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.6, ease: "easeOut" }} className="mx-auto max-w-xl">
                     <div className="relative mx-auto mb-4 flex h-96 w-full max-w-[340px] items-end justify-center">
-                        <div aria-hidden="true" className={`absolute left-1/2 top-1/2 h-[55%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl ${s.accent === "peach" ? "bg-yamet-peach/25" : "bg-yamet-teal/15"}`} />
+                        <div aria-hidden="true" className={`absolute left-1/2 top-1/2 h-[55%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl ${s.accent === "peach" ? "bg-yamet-peach/25" : "bg-yamet-gold/15"}`} />
                         <img src={cut[s.id] || s.image} alt={`Ilustrasi anak usia ${s.ageLabel}`} loading="lazy" className="relative z-10 h-full w-full object-contain object-bottom" draggable="false" />
                     </div>
-                    <div className={`mb-2 inline-flex rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider ${s.accent === "peach" ? "bg-yamet-peach/30 text-yamet-orange" : "bg-yamet-teal/10 text-yamet-teal"}`}>
+                    <div className={`mb-2 inline-flex rounded-full px-3 py-1 text-[11px] font-extrabold uppercase tracking-wider ${s.accent === "peach" ? "bg-yamet-peach/30 text-yamet-orange" : "bg-yamet-gold/10 text-yamet-gold"}`}>
                         Tahap {i + 1} dari {N}
                     </div>
                     <h3 className="font-heading text-3xl font-extrabold text-yamet-ink">{s.ageLabel}</h3>
@@ -346,7 +346,7 @@ export default function GrowthJourney() {
         <section id="tumbuh-kembang" className="relative py-20 sm:py-24 lg:py-28">
             <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
                 <div className="absolute left-1/2 top-24 h-72 w-72 -translate-x-1/2 rounded-full bg-yamet-peach/15 blur-3xl" />
-                <div className="absolute -right-16 top-1/2 h-64 w-64 rounded-full bg-yamet-teal-50 blur-3xl" />
+                <div className="absolute -right-16 top-1/2 h-64 w-64 rounded-full bg-yamet-sun-50 blur-3xl" />
             </div>
 
             <div className="mx-auto max-w-6xl px-5 lg:px-8">
