@@ -50,19 +50,21 @@ module.exports = {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
-                /* YAMET brand */
+                /* YAMET brand — palet "kuning hangat" (Okt 2026):
+                   kuning logo untuk sorotan/latar, cokelat tua untuk teks,
+                   oranye-bata untuk tombol utama. */
                 yamet: {
-                    teal: "#3A868F",
-                    "teal-50": "#E3F2F6",
-                    "teal-100": "#C9E6EC",
-                    "teal-600": "#2E7079", /* teks & tombol: putih di atasnya 5,7:1 */
-                    "teal-700": "#2A6168",
-                    peach: "#FFB5A7",
-                    "peach-50": "#FFE9E3",
-                    orange: "#F4A261",
-                    cream: "#FDFBF7",
-                    ink: "#1F333E",
-                    "ink-muted": "#5B707B",
+                    gold: "#A86F00",        /* sorotan judul & ikon (4,0:1 di krem — hanya teks besar) */
+                    brick: "#C2410C",       /* tombol utama & teks aksen kecil (putih di atasnya 5,1:1) */
+                    "brick-dark": "#9A3412",
+                    "sun-50": "#FFF3C4",    /* latar section / ubin ikon */
+                    "sun-100": "#FBE38C",
+                    peach: "#FFD2A6",       /* aprikot: aksen pendamping */
+                    "peach-50": "#FFEEDC",
+                    orange: "#D97706",
+                    cream: "#FFF9E6",
+                    ink: "#3B2F1E",
+                    "ink-muted": "#6E5A3E",
                 },
                 whatsapp: "#25D366",
                 /* YAMET logo brand primaries (used as accents) */
@@ -93,9 +95,9 @@ module.exports = {
                 "fade-in-up": "fade-in-up 0.6s ease-out forwards",
             },
             boxShadow: {
-                soft: "0 4px 18px -6px rgba(58, 134, 143, 0.15)",
-                glow: "0 8px 30px -8px rgba(58, 134, 143, 0.28)",
-                peach: "0 8px 30px -8px rgba(255, 181, 167, 0.55)",
+                soft: "0 4px 18px -6px rgba(168, 111, 0, 0.16)",
+                glow: "0 8px 30px -8px rgba(194, 65, 12, 0.26)",
+                peach: "0 8px 30px -8px rgba(255, 210, 166, 0.6)",
             },
         },
     },

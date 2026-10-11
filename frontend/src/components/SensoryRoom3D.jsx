@@ -19,13 +19,13 @@ const CHILD_RATIO = 0.747;
 
 function createScene(canvas) {
     const COL = {
-        teal: new THREE.Color("#3A868F"),
-        tealL: new THREE.Color("#5BA9B3"),
-        teal50: new THREE.Color("#E3F2F6"),
-        peach: new THREE.Color("#FFB5A7"),
-        peachD: new THREE.Color("#FF9E8C"),
-        peach50: new THREE.Color("#FFE9E3"),
-        cream: new THREE.Color("#FDFBF7"),
+        teal: new THREE.Color("#D97706"),
+        tealL: new THREE.Color("#F4C20D"),
+        teal50: new THREE.Color("#FFF3C4"),
+        peach: new THREE.Color("#FFD2A6"),
+        peachD: new THREE.Color("#F9B96B"),
+        peach50: new THREE.Color("#FFEEDC"),
+        cream: new THREE.Color("#FFF9E6"),
         white: new THREE.Color("#FFFFFF"),
         yellow: new THREE.Color("#F4C20D"),
         red: new THREE.Color("#E8462A"),
@@ -52,7 +52,7 @@ function createScene(canvas) {
     const envRT = pmrem.fromScene(new RoomEnvironment(), 0.04);
     scene.environment = envRT.texture;
 
-    scene.add(new THREE.HemisphereLight(0xffffff, 0xe8f1f2, 0.8));
+    scene.add(new THREE.HemisphereLight(0xffffff, 0xfff3c4, 0.8));
     const key = new THREE.DirectionalLight(0xffffff, 1.5);
     key.position.set(-6, 12, 8);
     key.castShadow = true;

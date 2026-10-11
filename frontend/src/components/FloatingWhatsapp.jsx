@@ -27,7 +27,10 @@ export default function FloatingWhatsapp() {
     };
 
     return (
-        <div className="fixed bottom-5 right-5 z-50 flex items-end gap-3 sm:bottom-6 sm:right-6" data-testid="floating-whatsapp-wrap">
+        <div
+            className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-[max(1.25rem,env(safe-area-inset-right))] z-50 flex items-end gap-3 sm:bottom-6 sm:right-6"
+            data-testid="floating-whatsapp-wrap"
+        >
             <AnimatePresence>
                 {showTip && (
                     <motion.div
@@ -35,7 +38,7 @@ export default function FloatingWhatsapp() {
                         animate={{ opacity: 1, x: 0, y: 0 }}
                         exit={{ opacity: 0, x: 10 }}
                         transition={{ duration: 0.35, ease: "easeOut" }}
-                        className="relative hidden max-w-[260px] rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-yamet-ink shadow-glow ring-1 ring-yamet-teal/15 sm:block"
+                        className="relative hidden max-w-[260px] rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-yamet-ink shadow-glow ring-1 ring-yamet-gold/15 sm:block"
                         data-testid="floating-whatsapp-tip"
                     >
                         <button
@@ -44,11 +47,11 @@ export default function FloatingWhatsapp() {
                             aria-label="Tutup tip"
                             className="absolute -right-4 -top-4 flex h-11 w-11 items-center justify-center rounded-full text-yamet-ink-muted hover:text-yamet-ink"
                         >
-                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white shadow ring-1 ring-yamet-teal/10">
+                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white shadow ring-1 ring-yamet-gold/10">
                                 <X className="h-3 w-3" />
                             </span>
                         </button>
-                        <div className="text-yamet-teal-600">Halo Bunda & Ayah</div>
+                        <div className="text-yamet-brick">Halo Bunda & Ayah</div>
                         <div className="text-yamet-ink-muted">
                             Butuh konsultasi tumbuh kembang? Chat kami sekarang.
                         </div>

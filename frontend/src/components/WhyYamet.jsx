@@ -40,7 +40,7 @@ export default function WhyYamet() {
         <section
             id="mengapa-yamet"
             data-testid="why-yamet-section"
-            className="relative bg-yamet-teal-50/40 py-20 sm:py-24 lg:py-28"
+            className="relative bg-yamet-sun-50/40 py-14 sm:py-20 lg:py-28"
         >
             <div aria-hidden="true" className="absolute inset-0 grain-bg opacity-40" />
             <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
@@ -52,12 +52,12 @@ export default function WhyYamet() {
                         transition={{ duration: 0.6 }}
                         className="lg:col-span-5"
                     >
-                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 before:h-px before:w-8 before:bg-yamet-teal-600">
+                        <div className="flex items-center gap-3 text-xs font-bold uppercase tracking-wider text-yamet-brick before:h-px before:w-8 before:bg-yamet-brick">
                             Mengapa YAMET
                         </div>
                         <h2 className="mt-6 font-heading text-4xl font-black leading-[1.05] tracking-tight text-yamet-ink sm:text-5xl lg:text-6xl">
                             Bukan sekadar terapi.
-                            <span className="block text-yamet-teal">Pendampingan yang penuh hati.</span>
+                            <span className="block text-yamet-gold">Pendampingan yang penuh hati.</span>
                         </h2>
                         <p className="mt-6 max-w-md text-base leading-relaxed text-yamet-ink-muted sm:text-lg">
                             Kami percaya intervensi dini yang dilakukan dengan sabar, terstruktur,
@@ -76,10 +76,10 @@ export default function WhyYamet() {
                                     viewport={{ once: true, margin: "-50px" }}
                                     transition={{ duration: 0.5, delay: i * 0.07 }}
                                     data-testid={`why-point-${i}`}
-                                    className="group rounded-2xl border border-yamet-ink/10 bg-white p-5 transition-colors duration-300 hover:border-yamet-teal/40"
+                                    className="group rounded-2xl border border-yamet-ink/10 bg-white p-5 transition-colors duration-300 hover:border-yamet-gold/40"
                                 >
                                     <div className="flex items-start gap-4">
-                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-yamet-teal text-white transition-transform group-hover:scale-105">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-yamet-gold text-white transition-transform group-hover:scale-105">
                                             <Icon className="h-6 w-6" />
                                         </span>
                                         <div>

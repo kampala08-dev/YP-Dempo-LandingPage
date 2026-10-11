@@ -66,7 +66,7 @@ export default function Gallery() {
         <section
             id="galeri"
             data-testid="gallery-section"
-            className="relative py-16 sm:py-20 lg:py-24"
+            className="relative py-12 sm:py-16 lg:py-24"
         >
             <div className="mx-auto max-w-7xl px-5 lg:px-8">
                 <motion.div
@@ -76,13 +76,13 @@ export default function Gallery() {
                     transition={{ duration: 0.6 }}
                     className="mx-auto max-w-2xl text-center"
                 >
-                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-teal/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-teal-600 shadow-sm">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-yamet-gold/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-yamet-brick shadow-sm">
                         <Camera className="h-3.5 w-3.5" aria-hidden="true" />
                         Galeri kegiatan
                     </div>
                     <h2 className="mt-6 font-heading text-4xl font-black leading-[1.08] tracking-tight text-yamet-ink sm:text-5xl">
                         Belajar, bergerak, dan{" "}
-                        <span className="text-yamet-teal">tumbuh bersama.</span>
+                        <span className="text-yamet-gold">tumbuh bersama.</span>
                     </h2>
                     <p className="mt-5 text-base leading-relaxed text-yamet-ink-muted sm:text-lg">
                         Sekilas suasana sesi terapi di YAMET Palembang Dempo — ruang yang aman,
@@ -108,7 +108,7 @@ export default function Gallery() {
                                 }}
                                 aria-label={`Perbesar foto: ${item.caption}`}
                                 data-testid={`gallery-item-${i}`}
-                                className="group relative block w-full overflow-hidden rounded-2xl bg-yamet-teal-50 shadow-soft ring-1 ring-yamet-ink/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-yamet-teal focus-visible:ring-offset-2 focus-visible:ring-offset-yamet-cream"
+                                className="group relative block w-full overflow-hidden rounded-2xl bg-yamet-sun-50 shadow-soft ring-1 ring-yamet-ink/5 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-yamet-gold focus-visible:ring-offset-2 focus-visible:ring-offset-yamet-cream"
                             >
                                 <img
                                     src={gallerySrc(item, 800)}
